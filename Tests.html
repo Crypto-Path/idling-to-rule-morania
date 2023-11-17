@@ -1,0 +1,18 @@
+<html>
+<script>
+function download_txt() {
+  var textToSave = document.getElementById('txt').innerHTML;
+  var hiddenElement = document.createElement('a');
+
+  hiddenElement.href = 'data:attachment/text,' + encodeURI(textToSave);
+  hiddenElement.target = '_blank';
+  hiddenElement.download = 'myFile.txt';
+  hiddenElement.click();
+}
+
+//document.getElementById('test').addEventListener('click', download_txt);
+</script>
+<body>
+<a id="txt">abcdefghijklmnopqrstuvwxyz</a>
+</body>
+</html>

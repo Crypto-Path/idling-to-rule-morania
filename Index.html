@@ -1,0 +1,2530 @@
+<!DOCTYPE html>
+<!--
+<htmlApplication
+  applicationName="Idling to Rule Morania"
+  fixedSize="yes"
+  width=1024
+  height=720
+  menu="no" />
+-->
+<head>
+    <style>
+        
+        #Inventory {
+            height: 500px;
+            float: left;
+            width: 287px;
+        } 
+
+        #Inventory1, #Inventory2 {
+            float: left;
+            margin: 3px;
+            padding: 3px;
+            border: 1px solid black;
+        }
+
+        #Inventory2 {
+            width: 271px;
+            background-color: #915816;
+        }
+
+        #Slot1, #Slot2, #Slot3, #Slot4, #Slot5, #Slot6, #Slot7, #Slot8, #Slot9, #Slot10, #Slot11, #Slot12, #Slot13, #Slot14, #Slot15, #Slot16, #Slot17, #Slot18, #Slot19, #Slot20, #Slot21, #Slot22, #Slot23, #Slot24, #Slot25, #Slot26, #Slot27, #Slot28, #Slot29, #Slot30, #Slot31, #Slot32, #Slot33, #Slot34, #Slot35, #Slot36, #Slot37 {
+            float: left;
+            width: 16px;
+            height: 16px;
+            margin: 3px;
+            padding: 3px;
+            border: 1px solid black;
+        }
+
+        #CraftsHolder {
+            float: left;
+            width: 269px;
+            border: 1px solid black;
+            overflow-x: hidden;
+            overflow-y: auto;
+            height: 354px;
+            background-color: #a0711d;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+          -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.33);
+          border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+          border-radius: 10px;
+          background: rgba(255,0,0,0.5); 
+          -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+          border-radius: 10px;
+          background: rgba(255,0,0,0.8); 
+          -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .Craft {
+            cursor:pointer;
+            float: left;
+            width: 230px;
+            height: 78px;
+            margin: 3px;
+            padding: 3px;
+            border: 1px solid black;
+            font-size: 11px;
+            background-color: #b47e36;
+        }
+
+        .Craft:hover {
+            width: 246px;
+            background-color: #a8742f;
+        }
+
+        .Craft img {
+            float: right;
+            width: 64px;
+            height: 64px;
+            margin: 3px;
+            padding: 3px;
+            image-rendering: pixelated;
+          background: rgba(127,0,0,0.25); 
+          -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .Tab {
+            cursor:pointer;
+            float: left;
+            width: 76px;
+            height: 16px;
+            margin: 3px;
+            padding: 3px;
+            border: 1px solid black;
+            font-size: 14px;
+            text-align: center;
+            background-color: #a5a5a5;
+        }
+
+        .Tab:hover {
+            background-color: #909090;
+        }
+
+        a.tooltip {
+          text-decoration: none;
+        }
+
+        a.tooltip:hover {
+          cursor: pointer;
+          position: relative;
+        }
+        
+        a.tooltip span {
+          display: none;
+          font-size: 14px;
+        }
+        
+        a.tooltip:hover span {
+          border: 1px solid black;
+          padding: 5px 20px 5px 5px;
+          display: block;
+          z-index: 100;
+          background: #e3e3e3;
+          left: 0px;
+          margin: 15px;
+          width: 300px;
+          position: fixed;
+          top: calc(var(--mouse-y, 0) + 20);
+          left: calc(var(--mouse-x, 0) + 20);
+          text-decoration: none;
+        }
+        
+        #MonsterHolder{
+          -webkit-box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+    <script type="text/vbscript">
+        
+    
+    	On Error Resume
+    	
+    
+    </script>
+</head>
+<body>
+    <div id="Inventory">
+        <div id="Inventory1" style="float: left; background-color: #ABBAEA; width: 272px; height: 121px; Visibility: visible;">
+            <div class="Slot" id="Slot1"></div>
+            <div class="Slot" id="Slot2"></div>
+            <div class="Slot" id="Slot3"></div>
+            <div class="Slot" id="Slot4"></div>
+            <div class="Slot" id="Slot5"></div>
+            <div class="Slot" id="Slot6"></div>
+            <div class="Slot" id="Slot7"></div>
+            <div class="Slot" id="Slot8"></div>
+            <div class="Slot" id="Slot9"></div>
+            <div class="Slot" id="Slot10"></div>
+            <div class="Slot" id="Slot11"></div>
+            <div class="Slot" id="Slot12"></div>
+            <div class="Slot" id="Slot13"></div>
+            <div class="Slot" id="Slot14"></div>
+            <div class="Slot" id="Slot15"></div>
+            <div class="Slot" id="Slot16"></div>
+            <div class="Slot" id="Slot17"></div>
+            <div class="Slot" id="Slot18"></div>
+            <div class="Slot" id="Slot19"></div>
+            <div class="Slot" id="Slot20"></div>
+            <div class="Slot" id="Slot21"></div>
+            <div class="Slot" id="Slot22"></div>
+            <div class="Slot" id="Slot23"></div>
+            <div class="Slot" id="Slot24"></div>
+            <div class="Slot" id="Slot25"></div>
+            <div class="Slot" id="Slot26"></div>
+            <div class="Slot" id="Slot27"></div>
+            <div class="Slot" id="Slot28"></div>
+            <div class="Slot" id="Slot29"></div>
+            <div class="Slot" id="Slot30"></div>
+            <div class="Slot" id="Slot31"></div>
+            <div class="Slot" id="Slot32"></div>
+            <div class="Slot" id="Slot33"></div>
+            <div class="Slot" id="Slot34"></div>
+            <div class="Slot" id="Slot35"></div>
+            <div class="Slot" id="Slot36"></div>
+        </div>
+        <div id="Inventory2">
+            <div id="CraftingMenuTitle" style="width: 271px;text-align: center;font-size: 21px;">
+                <a>
+                Crafting Menu
+                </a>
+            </div>
+            <div onclick="ShowCrafts('Items')" class="Tab" id="WeaponsTab">
+                <a>
+                    Items
+                </a>
+            </div>
+            <div onclick="ShowCrafts('Blades')" class="Tab" id="WeaponsTab">
+                <a>
+                    Blades
+                </a>
+            </div>
+            <div onclick="ShowCrafts('Weapons')" class="Tab" id="WeaponsTab">
+                <a>
+                    Weapons
+                </a>
+            </div>
+            <div onclick="ShowCrafts('All')" class="Tab" id="WeaponsTab">
+                <a>
+                    All
+                </a>
+            </div>
+            <input type="number" placeholder="Amount" style="width: 76px; height: 16px; margin: 3px; padding: 3px; border: 1px solid black; font-size: 14px; text-align: center; background-color: #a5a5a5;">
+            <div id="CraftsHolder">
+                <!--
+                    Craft Items
+                    -->
+                <a class="Craft CItem tooltip" onclick="CraftItem(4)">
+                    <img src="Images/Item_String.png"> 
+                    [String]<br>Requires:<br>Slime-Green(x10)<br>Slime-Yellow(x10)
+                    <span>
+                    [String]<br>[Material]<br><br>Very thin, yet strong, and can be used to tie things up
+                    </span> 
+                </a>
+                <a class="Craft CItem tooltip" onclick="CraftItem(5)">
+                    <img src="Images/Item_Grass.png"> 
+                    [Grass]<br>Requires:<br>Slime-Green(x5) 
+                    <span>
+                    [Grass]<br>[Material]<br><br>Hey! I remember eating this stuff as a kid!
+                    </span>
+                </a>
+                <a class="Craft CItem tooltip" onclick="CraftItem(6)">
+                    <img src="Images/Item_Stick.png">
+                    [Stick]<br>Requires:<br>Slime-Green(x50)
+                    <span>
+                    [Stick]<br>[Material, Equipabble]<br>DMG: 0.5<br><br>It may be a "Weapon" but just try no to get yourself into a *sticky* situation
+                    </span>
+                </a>
+                <a class="Craft CItem tooltip" onclick="CraftItem(7)">
+                    <img src="Images/Item_Pebble.png"> 
+                    [Rock]<br>Requires:<br>Slime-Blue(x25)<br>Slime-Red(x25)
+                    <span>
+                    [Rock]<br>[Material]<br><br> PAPYRUS!! OH MY GOD!! IS THAT... A HUMAN?!?<br>uhhh...actually i think that's a rock.
+                    </span>
+                </a>
+                <a class="Craft CItem tooltip" onclick="CraftItem(8)">
+                    <img src="Images/Item_Silver.png"> 
+                    [Silver]<br>Requires:<br>Slime-Blue(x75)<br>Slime-Red(x75)
+                    <span>
+                    [Silver]<br>[Material]<br><br>I heard Vampires don't like it
+                    </span>
+                </a>
+                <a class="Craft CItem tooltip" onclick="CraftItem(9)">
+                    <img src="Images/Item_Emerald.png"> 
+                    [Emerald]<br>Requires:<br>Silver(x10)<br>Slime-Green(x750) 
+                    <span>
+                    [Emerald]<br>[Material]<br><br>you hear a faint, \"Hurr\" in the distance. It sounded like who ever made that noise had there nose plugged.
+                    </span>
+                </a>
+                <a class="Craft CItem tooltip" onclick="CraftItem(10)">
+                    <img src="Images/Item_Ruby.png"> 
+                    [Ruby]<br>Requires:<br>Silver(x10)<br>Slime-Red(x750) 
+                    <span>
+                    [Ruby]<br>[Material]<br><br>A very expensive gem
+                    </span>
+                </a>
+                <a class="Craft CItem tooltip" onclick="CraftItem(11)">
+                    <img src="Images/Item_DarkGem.png">
+                    [DarkGem]<br>Requires:<br>Silver(x100)<br>Emerald(x10)<br>Ruby(x10) 
+                    <span>
+                    [DarkGem]<br>[Material, ???]<br><br>01000011011011110111001001110010011101010111000001110100011100110010000001000100011000010111010001100001
+                    </span>
+                </a>
+                <a class="Craft CItem tooltip" onclick="CraftItem(15)">
+                    <img src="Images/Item_Paper_Mapped.png">
+                    [Map]<br>Requires:<br>Item_Paper(x5)<br>Item_Paper_Used(x35) 
+                    <span>
+                    [Map]<br>[Consumable]<br><br>Shows an unfamiliar area
+                    </span>
+                </a>
+                <a class="Craft CItem tooltip" onclick="CraftItem(4001)">
+                    <img src="Images/Tool_Net.png">
+                    [Net]<br>Requires:<br>Stick(x5)<br>String(x500) 
+                    <span>
+                    [Net]<br>[Consumable]<br><br>GoTtA CaTcH Em aLl!<br>This Item can be used to catch Monster, or Creatures. Some Monsters/Creatures can do special things after they're are caught.<br>You can only have <strong>5</strong> of one type of monster in your inventory at a time or else the special things the monster can do stop working
+                    </span>
+                </a>
+                <!--
+                    Craft Blades
+                    -->
+                <a class="Craft CBlade tooltip" onclick="CraftItem(21)">
+                    <img src="Images/Item_Handle_Sword.png"> 
+                    [Sword Handle]<br>Requires:<br>Stick(x4) 
+                    <span>
+                    [Sword Handle]<br>[Material]<br><br>It looks familiar, you notice every(most) sword has this.
+                    </span>
+                </a>
+                <a class="Craft CBlade tooltip" onclick="CraftItem(2505)">
+                    <img src="Images/Blade_Wooden.png"> 
+                    [Wooden Blade]<br>Requires:<br>Stick(x1) 
+                    <span>
+                    [Wooden Blade]<br>[Material]<br><br>The blade needed to craft a Wooden Sword
+                    </span>
+                </a>
+                <a class="Craft CBlade tooltip" onclick="CraftItem(2506)">
+                    <img src="Images/Blade_Bone.png"> 
+                    [Bone Blade]<br>Requires:<br>Bone(x8) 
+                    <span>
+                    [Bone Blade]<br>[Material]<br><br>The difference between a bone blade and a normal bone is that a bone can be a blade but a blade cant be a bone
+                    </span>
+                </a>
+                <a class="Craft CBlade tooltip" onclick="CraftItem(2507)">
+                    <img src="Images/Blade_Stone.png"> 
+                    [Stone Blade]<br>Requires:<br>Rock(x12)
+                    <span>
+                    [Stone Blade]<br>[Material]<br><br>The blade needed to craft a Stone Sword
+                    </span>
+                </a>
+                <a class="Craft CBlade tooltip" onclick="CraftItem(2509)">
+                    <img src="Images/Blade_Grass.png"> 
+                    [Grass Blade]<br>Requires:<br>Grass(x2,000) 
+                    <span>
+                    [Grass Blade]<br>[Material]<br><br>is it a blade of grass, or a grass of blade
+                    </span>
+                </a>
+                <a class="Craft CBlade tooltip" onclick="CraftItem(2510)">
+                    <img src="Images/Blade_Silver.png"> 
+                    [Silver Blade]<br>Requires:<br>Silver(x24)
+                    <span>
+                    [Silver Blade]<br>[Material]<br><br>Don't let the Vampires find out you have this
+                    </span>
+                </a>
+                <a class="Craft CBlade tooltip" onclick="CraftItem(2511)">
+                    <img src="Images/Blade_Alpha.png"> 
+                    [Alpha Blade]<br>Requires:<br>Emerald(x5)<br>Ruby(x5)
+                    <span>
+                    [Alpha Blade]<br>[Material]<br><br>This is the the last blade you'll need for the Swords of Greek letters
+                    </span>
+                </a>
+                <a class="Craft CBlade tooltip" onclick="CraftItem(2516)">
+                    <img src="Images/Blade_Emerald.png"> 
+                    [Emerald Blade]<br>Requires:<br>Emerald(x25)
+                    <span>
+                    [Emerald Blade]<br>[Material]<br><br>
+                    </span>
+                </a>
+                <a class="Craft CBlade tooltip" onclick="CraftItem(2517)">
+                    <img src="Images/Blade_Ruby.png"> 
+                    [Ruby Blade]<br>Requires:<br>Ruby(x25)
+                    <span>
+                    [Ruby Blade]<br>[Material]<br><br>
+                    </span>
+                </a>
+                <!--
+                    Craft Weapons
+                    -->
+                <a class="Craft CWeapon tooltip" onclick="CraftItem(2001)">
+                    <img src="Images/Sword_Slime_Green.png">
+                    [Green Slime Sword]<br>Requires:<br>Slime-Green(x1000)
+                    <span>
+                    [Green Slime Sword]<br>[Material, Equipabble]<br>DMG: 15<br>Drop Chance Multiplier: +10%<br><br>Nature Slime Sword
+                    </span>
+                </a>
+                <a class="Craft CWeapon tooltip" onclick="CraftItem(2002)">
+                    <img src="Images/Sword_Slime_Yellow.png">
+                    [Yellow Slime Sword]<br>Requires:<br>Slime-Yellow(x1000)
+                    <span>
+                    [Yellow Slime Sword]<br>[Material, Equipabble]<br>DMG: 18<br>Drop Chance Multiplier: +10%<br><br>Energy Slime Sword
+                    </span>
+                </a>
+                <a class="Craft CWeapon tooltip" onclick="CraftItem(2003)">
+                    <img src="Images/Sword_Slime_Blue.png">
+                    [Blue Slime Sword]<br>Requires:<br>Slime-Blue(x1000)
+                    <span>
+                    [Blue Slime Sword]<br>[Material, Equipabble]<br>DMG: 21<br>Drop Chance Multiplier: +10%<br><br>Water Slime Sword
+                    </span>
+                </a>
+                <a class="Craft CWeapon tooltip" onclick="CraftItem(2004)">
+                    <img src="Images/Sword_Slime_Red.png">
+                    [Red Slime Sword]<br>Requires:<br>Slime-Red(x1000)
+                    <span>
+                    [Red Slime Sword]<br>[Material, Equipabble]<br>DMG: 24<br>Drop Chance Multiplier: +10%<br><br>Magma Slime Sword
+                    </span>
+                </a>
+                <a class="Craft CWeapon tooltip" onclick="CraftItem(2005)">
+                    <img src="Images/Sword_Wooden.png">
+                    [Wooden Sword]<br>Requires:<br>Handle_Sword(x1)<br>String(x4)<br>Blade_Wooden(x1)
+                    <span>
+                    [Wooden Sword]<br>[Equipabble]<br>DMG: 7<br><br>A very "Dangerous" weapon, be careful not to poke your eye out
+                    </span>
+                </a>
+                <a class="Craft CWeapon tooltip" onclick="CraftItem(2006)">
+                    <img src="Images/Sword_Bone.png"> 
+                    [Bone Sword]<br>Requires:<br>Handle_Sword(x1)<br>String(x4)<br>Blade_Bone(x1) 
+                    <span>
+                    [Bone Sword]<br>[Equipabble]<br>DMG: 12<br>XP Multiplier: +25%<br><br>Somehow collects XP and transfers it to who ever holds it
+                    </span>
+                </a>
+                <a class="Craft CWeapon tooltip" onclick="CraftItem(2007)">
+                    <img src="Images/Sword_Stone.png"> 
+                    [Stone Sword]<br>Requires:<br>Handle_Sword(x1)<br>String(x4)<br>Blade_Stone(x1) 
+                    <span>
+                    [Stone Sword]<br>[Material, Equipabble]<br>DMG: 32<br><br>hah, made out of Rocks? get real cobblestone is where it's all at
+                    </span>
+                </a>
+                <a class="Craft CWeapon tooltip" onclick="CraftItem(2008)">
+                    <img src="Images/Sword_Slime.png"> 
+                    [Slime Sword]<br>Requires:<br>Sword-Slime-Green(x1)<br>Sword-Slime-Yellow(x1)<br>Sword-Slime-Blue(x1)<br>Sword-Slime-Red(x1)
+                    <span>
+                    [<strong>Slime Sword</strong>]<br>[Equipabble]<br>DMG: 45<br>Drop Chance Multiplier: +50%<br><br>A <strong>VERY</strong> rare sword made of every type of slime
+                    </span> 
+                </a>
+                <a class="Craft CWeapon tooltip" onclick="CraftItem(2009)">
+                    <img src="Images/Sword_Grass.png">
+                    [Bladed Grass Sword]<br>Requires:<br>Handle_Sword(x1)<br>String(x4)<br>Blade_Grass(x1)
+                    <span>
+                    [Bladed Grass Sword]<br>[Equipabble]<br>DMG: 100<br><br>Which is worse: a Paper cut, or a Grass cut
+                    </span>
+                </a>
+                <a class="Craft CWeapon tooltip" onclick="CraftItem(2010)">
+                    <img src="Images/Sword_Silver.png">
+                    [Silver Sword]<br>Requires:<br>Handle_Sword(x1)<br>String(x4)<br>Blade_Silver(x1)
+                    <span>
+                    [Silver Sword]<br>[Equipabble]<br>DMG: 250<br><br>Vampire's bane
+                    </span>
+                </a>
+                <a class="Craft CWeapon tooltip" onclick="CraftItem(2011)">
+                    <img src="Images/Sword_Alpha.png">
+                    [Alpha Sword]<br>Requires:<br>Handle_Sword(x1)<br>String(x4)<br>Blade_Alpha(x1)
+                    <span>
+                    [Alpha Sword]<br>[Material, Equipabble]<br>DMG: 500<br><br>Alpha is *usually* the best version, I mean look at cube world.
+                    </span>
+                </a>
+                <a class="Craft CWeapon tooltip" onclick="CraftItem(2012)">
+                    <img src="Images/Sword_Beta.png">
+                    [Beta Sword]<br>Requires:<br>Sword_Alpha(x4)
+                    <span>
+                    [Beta Sword]<br>[Material, Equipabble]<br>DMG: 1000<br><br>Well, it's better than Alpha
+                    </span>
+                </a>
+                <a class="Craft CWeapon tooltip" onclick="CraftItem(2016)">
+                    <img src="Images/Sword_Emerald.png">
+                    [Emerald Sword]<br>Requires:<br>Handle_Sword(x1)<br>String(x4)<br>Blade_Emerald(x1)
+                    <span>
+                    [Emerald Sword]<br>[Equipabble]<br>DMG: 1500<br>XP Multiplier: +100%<br><br>
+                    </span>
+                </a>
+                <a class="Craft CWeapon tooltip" onclick="CraftItem(2017)">
+                    <img src="Images/Sword_Ruby.png">
+                    [Ruby Sword]<br>Requires:<br>Handle_Sword(x1)<br>String(x4)<br>Blade_Ruby(x1)
+                    <span>
+                    [Ruby Sword]<br>[Equipabble]<br>DMG: 1500<br>Drop Chance Multiplier: +75%<br><br>
+                    </span>
+                </a>
+                <a class="Craft CWeapon tooltip" onclick="CraftItem(2013)">
+                    <img src="Images/Sword_Gamma.png">
+                    [Gamma Sword]<br>Requires:<br>Sword_Beta(x4)
+                    <span>
+                    [Gamma Sword]<br>[Material, Equipabble]<br>DMG: 2000<br><br>Idk what Gamma means anymore! Is it a greek letter, screen brightness, or lazer ray things from outer space??!!?
+                    </span>
+                </a>
+                <a class="Craft CWeapon tooltip" onclick="CraftItem(2014)">
+                    <img src="Images/Sword_Delta.png"> 
+                    [Delta Sword]<br>Requires:<br>Sword_Gamma(x4) 
+                    <span>
+                    [Delta Sword]<br>[Material, Equipabble]<br>DMG: 4000<br><br>I think you can find one of these in some runes
+                    </span>
+                </a>
+                <a class="Craft CWeapon tooltip" onclick="CraftItem(2015)">
+                    <img src="Images/Sword_Epsilon.png"> 
+                    [Epsilon Sword]<br>Requires:<br>Sword_Delta(x4) 
+                    <span>
+                    [Epsilon Sword]<br>[Material, Equipabble]<br>DMG: 8000<br><br>Ɛ
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="Equipment" onclick="unequip(0)" style="position:absolute; top:256px; left:512px; image-rendering: pixelated;">
+        <img id="ESword" src="Images/Slot_Equipment_Sword.png" style="width:64px;">
+    </div>
+    <div id="Debug" style="float: left;"></div>
+    <div style="position:absolute; left:336px; top:130px; background-color: #DFDFDF; width: 128px; height: 168px; border: 1px solid black;">
+        <div id="MonsterHolder" onclick="AttackMonster('click')" style="position:absolute; left:0px; top:40px; background-color: #DFDFDF; width: 126px; height: 126px; border: 1px solid black;">
+            <a id="MonsterName"></a>
+        </div>
+    </div>
+    <div id="AreaControler" style="position:absolute; left:336px; top:310px; width: 128px; height: 128px; image-rendering: pixelated;">
+        <div id="AreaName" style="float:left; font-size: 24px">
+        Outer Plains
+        </div>
+        <div id="AreaLast" style="float:left">
+            <img src="Images/Button_Left.png" onclick="GoToArea('Last')" style="width:32px">
+        </div>
+        <div id="Area" style="float:left; font-size: 32px">
+        1
+        </div>
+        <div id="AreaNext" style="float:left">
+            <img src="Images/Button_Right.png" onclick="GoToArea('Next')" style="width:32px">
+        </div>
+    </div>
+    <div id="Chat" style="width:188px; height:188px; border: 1px solid black; position: absolute; top: 405px; left:305px; background-color:#DFDFDF; text-align:center;">
+        Morania Console
+        <div id="Info" style="border: 1px solid black; position:relative; top:7px; left:7px; width:166px; height:147px; padding: 3px; background-color:#DFDFDF; overflow:auto; font-size:12px;">
+        </div>
+    </div>
+    <div id="Map">
+        <Div onclick="Region('Plains')" style="position: absolute; top: 532px; left: 732px;">
+        Plains
+        </Div>
+    </div>
+    <div>
+        <div id="QuestsMenu" style="width:288px; height:288px; border: 1px solid black; position: absolute; top: 12px; left:720px; background-color:#DFDFDF; text-align:left;">
+        <button onclick="TS()">
+        Settings
+        </button>
+        Guild
+            <div id="QuestInfo" style="border: 1px solid black; position:relative; top:7px; left:7px; width:266px; height:247px; padding: 3px; background-color:#DFDFDF; overflow:auto; font-size:12px;">
+            </div>
+        </div>
+    </div>
+    <div id="Settings" style="Visibility:hidden;position:absolute;width: 1012px; height: 600px; background-color:#DFDFDF;">
+        <button onclick="TS(true)" style="float:left;">
+        Close
+        </button>
+        <div style="float:left;width:20%;height:100%;">
+            
+        </div>
+        <div style="overflow-y: scroll;height:100%;">
+            <div>
+                <a>
+                Click Monster to deal Damage. Auto attack deals same damage as click, and attacks once every second<br>
+                Hover over items to show its tooltip. If an item has the equipable trait, left click to equip<br>
+                shift + left click one item and shift + left click another and the items will swap places (use to sort inventory)<br>
+                1,2,3 -> [1],2,3 -> [1],2,[3] -> 3,2,1<br>
+                right click deletes or for some items scraps one of the item you click<br>
+                shift + right click deletes or for some items scraps all of the item you click<br><br>
+                Right now the net will only work to capture small slimes anyother monster you'll just get a unset item that won't do anything sorry for the inconvenience
+                </a>
+                <br><br>
+                <a style='font-size:32px'>
+                    <strong>Settings</strong>
+                    <br>
+                    <a style='font-size:10px'>
+                    Settings is still missing some key features, and not all settings may work.<br>
+                    If a setting ends with -- that means it doesnt effect anything yet, and is just a placeholder so I don't forget to add it later.
+                    </a>
+                </a>
+                <br><br>
+                <a>
+                    <a style='font-size:20px'>
+                        <strong>Gameplay</strong>
+                    </a>
+                    <br><br>
+                    Auto Attack
+                    <input id="AutoAttack" type="checkbox">
+                    <br><br>
+                    Performance Mode --
+                    <input id="PerformanceMode" type="checkbox">
+                    <br><br>
+                    <strong>Tooltip</strong>
+                    <br>
+                    Show Tooltip --
+                    <input id="ShowToolTip" type="checkbox">
+                    <br>
+                    Tooltip Color --
+                    <input id="TooltipColor" type="color" value="#e3e3e3">
+                    <br>
+                    Tooltip Border Color --
+                    <input id="TooltipBorderColor" type="color">
+                    <br>
+                    Tooltip X-Offset (default:20) --
+                    <input id="TooltipXOffsetNumber" type="number" value="20">
+                    <br>
+                    Tooltip Y-Offset (default:20) --
+                    <input id="TooltipYOffsetNumber" type="number" value="20">
+                </a>
+                <br><br>
+                <a>
+                    <a style='font-size:20px'>
+                        <strong>Morania Console</strong>
+                    </a>
+                    <br>
+                    <a style='font-size:10px'>
+                    Display Time Warning:<br>
+                    Having a high Display Times will lag and eventually freeze the game<br>
+                    If you wan't to be able to look back and see (most) everything that has happen have the more common less useful logged info's display time lower than the less common more useful information<br><br>
+                    Minutes: AmountOfMinutes*60<br>
+                    Hours: AmountOfHours*60*60<br>
+                    Days: AmountOfDays*60*60*24
+                    </a>
+                    <a>
+                        <br><br>
+                        <a>
+                            Show Console --
+                            <input id="ShowMoraniaConsole" type="checkbox">
+                        </a>
+                        <br><br>
+                        <a class="tooltip">
+                            Scroll To Bottom
+                            <input id="SendBottom" type="checkbox">
+                            <span>
+                            Everytime Something is logged into the console you get scrolled to the bottom to view what's new.
+                            </span>
+                        </a>
+                        <br><br>
+                        <a>
+                            Log: Item Added
+                            <input id="ItemAdded" type="checkbox">
+                            <br>
+                            Display Time(seconds)
+                            <input id="ItemAddedTime" type="number">
+                        </a>
+                        <br><br>
+                        <a>
+                            Log: Item Discovered
+                            <input id="ItemDiscovered" type="checkbox">
+                            <br>
+                            Display Time(seconds)
+                            <input id="ItemDiscoveredTime" type="number">
+                        </a>
+                        <br><br>
+                        <a>
+                            Log: Found Chest
+                            <input id="FoundChest" type="checkbox">
+                            <br>
+                            Display Time(seconds)
+                            <input id="FoundChestTime" type="number">
+                        </a>
+                        <br><br>
+                        <a>
+                            Log: Level Up
+                            <input id="LevelUp" type="checkbox">
+                            <br>
+                            Display Time(seconds)
+                            <input id="LevelUpTime" type="number">
+                        </a>
+                        <br><br>
+                        <a>
+                            Log: Quest Complete
+                            <input id="QuestComplete" type="checkbox">
+                            <br>
+                            Display Time(seconds)
+                            <input id="QuestCompleteTime" type="number">
+                        </a>
+                    </a>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="nan"></div>
+</body>
+<script>
+
+    //Setting Settings
+
+    document.getElementById("SendBottom").checked = true;
+    document.getElementById("AutoAttack").checked = true;
+    document.getElementById("ItemAdded").checked = true;
+    document.getElementById("ItemDiscovered").checked = true;
+    document.getElementById("FoundChest").checked = true;
+    document.getElementById("LevelUp").checked = true;
+    document.getElementById("QuestComplete").checked = true;
+    
+    document.getElementById("ItemAddedTime").value = 5;
+    document.getElementById("ItemDiscoveredTime").value = 60*60*24;
+    document.getElementById("FoundChestTime").value = 60*60*24;
+    document.getElementById("LevelUpTime").value = 60*60*24;
+    document.getElementById("QuestCompleteTime").value = 60*60*24;
+
+    document.querySelector('input').value = 1;
+
+    /*
+	document.parentWindow.window.resizeTo(800,600);
+	//document.parentWindow.window.onresize;
+	document.parentWindow.window.addEventListener("resize", function(){
+		document.parentWindow.window.resizeTo(800,600)
+	});
+	*/
+
+    //CreateItem(1);
+    //CreateItem(1);
+    //CreateItem(2);
+
+    /*
+	if () {
+	}
+	*/
+
+    //GameVars
+    var C_Coin_M = 1;
+    var C_Coin_Copper = 0;
+    var C_Coin_Silver = 0;
+    var C_Coin_Gold = 0;
+    var C_Coin_Platinum = 0;
+
+    //--Objects
+    var O_Chest_Wood = ["Wooden Chest", 50, 0, 0, 0, 0, 0, [0, 10], [0, 0], "Images/Object_Chest_Wood.png", [[0.5,1], [4, 2],[1, 2],[25, 3],[21, 3],[18, 3],[14, 3],[11, 3],[7, 3],[5, 3],[3, 3],[1, 3],[3, 4],[2, 4],[1, 4],[0.3, 6],[0.2, 6],[0.1, 6],[1, 7],[0.75, 7],[0.5, 7],[0.25, 7],[0.05, 8],[0.05, 8],[0.05, 8],[0.05, 8],[0.05, 8],[0.5, 13],[0.5, 13],[0.5, 13],[0.5, 13],[1, 14],[1, 14],[1, 14],[1, 14],[1, 14],[1, 14],[1, 14],[1, 14],[0.5, 15],[1, 21],[7.5, 1001],[7.5, 1001],[7.5, 1001],[7.5, 1001],[7.5, 1001],[7.5, 1001],[7.5, 1001],[7.5, 1001],[7.5, 1001],[7.5, 1002],[7.5, 1002],[7.5, 1002],[7.5, 1002],[7.5, 1002],[7.5, 1002],[7.5, 1002],[7.5, 1002],[7.5, 1002],[7.5, 1003],[7.5, 1003],[7.5, 1003],[7.5, 1003],[7.5, 1003],[7.5, 1003],[7.5, 1003],[7.5, 1003],[7.5, 1003],[7.5, 1004],[7.5, 1004],[7.5, 1004],[7.5, 1004],[7.5, 1004],[7.5, 1004],[7.5, 1004],[7.5, 1004],[7.5, 1004],[0.125, 2001],[0.125, 2001],[0.125, 2002],[0.125, 2002],[0.125, 2003],[0.125, 2003],[0.125, 2004],[0.125, 2004],[0.15, 2005],]];
+
+    //["Name", Health point, Mana points, Strength, Defence, Agility, Regen, Currency[Min,Max], XP[Min,Max], Image, Drops[[DropChance,DropItemID]]		(Array( [!] for array.length))]
+    //--Enemys
+    var M_M_Coin_Slime;
+    var M_M_Coin_Slime_M;
+    var M_Slime_Small_Green = ["Green Slime [Small]", 10, 0, 1, 0, 1, 0, [0, 2], [1, 3], "Images/Monster_Slime_Small_Green.png", [[12, 1001], [12, 1001], [12, 1001], [0.007, 2001]]];//MID: 1 (Monster ID)
+    var M_Slime_Small_Yellow = ["Yellow Slime [Small]", 10, 1, 0, 0, 1, 1, [0, 2], [1, 3], "Images/Monster_Slime_Small_Yellow.png", [[5, 1002], [5, 1002], [5, 1002], [0.005, 2002]]];//MID: 2
+    var M_Slime_Small_Blue = ["Blue Slime [Small]", 10, 0, 1, 0.5, 1, 1, [0, 3], [1, 4], "Images/Monster_Slime_Small_Blue.png", [[2, 1003], [2, 1003], [2, 1003], [0.004, 2003]]];
+    var M_Slime_Small_Red = ["Red Slime [Small]", 10, 0, 2, 0, 1, 0, [0, 3], [1, 4], "Images/Monster_Slime_Small_Red.png", [[1, 1004], [1, 1004], [1, 1004], [0.002, 2004]]];
+    var M_Slime_Green = ["Green Slime [Medium]", 100, 0, 15, 8, 2, 2, [0, 4], [1, 25], "Images/Monster_Slime_Green.png", [[14, 1001], [14, 1001], [14, 1001], [14, 1001], [0.014, 2001]]];
+    var M_Slime_Yellow = ["Yellow Slime [Medium]", 100, 15, 8, 8, 2, 2, [0, 4], [1, 25], "Images/Monster_Slime_Yellow.png", [[10, 1002], [10, 1002], [10, 1002], [10, 1002], [0.01, 2002]]];
+    var M_Slime_Blue = ["Blue Slime [Medium]", 100, 0, 15, 12, 2, 2, [0, 6], [2, 37], "Images/Monster_Slime_Blue.png", [[4, 1003], [4, 1003], [4, 1003], [4, 1003], [0.005, 2006]]];
+    var M_Slime_Red = ["Red Slime [Medium]", 100, 0, 25, 8, 2, 2, [0, 6], [2, 37], "Images/Monster_Slime_Red.png", [[2, 1004], [2, 1004], [2, 1004], [2, 1004], [0.003, 2004]]];
+    var M_Slime_Large_Green = ["Green Slime [Large]", 300, 0, 45, 35, 3, 2, [0, 4], [1, 55], "Images/Monster_Slime_Large_Green.png", [[21, 1001], [21, 1001], [21, 1001], [21, 1001], [21, 1001], [0.021, 2001]]];
+    var M_Slime_Large_Yellow = ["Yellow Slime [Large]", 300, 45, 25, 20, 3, 2, [0, 4], [1, 55], "Images/Monster_Slime_Large_Yellow.png", [[15, 1002], [15, 1002], [15, 1002], [15, 1002], [15, 1002], [0.015, 2002]]];
+    var M_Slime_Large_Blue = ["Blue Slime [Large]", 300, 0, 45, 35, 3, 4, [0, 6], [2, 67], "Images/Monster_Slime_Large_Blue.png", [[6, 1003], [6, 1003], [6, 1003], [6, 1003], [6, 1003], [0.008, 2003]]];
+    var M_Slime_Large_Red = ["Red Slime [Large]", 300, 0, 65, 35, 3, 2, [0, 6], [2, 67], "Images/Monster_Slime_Large_Red.png", [[3, 1004], [3, 1004], [3, 1004], [3, 1004], [3, 1004], [0.006, 2004]]];
+    var M_Slime_Massive_Green = ["Green Slime [Massive]", 1000, 5, 75, 75, 4, 3, [0, 4], [1, 105], "Images/Monster_Slime_Massive_Green.png", [[46, 1001], [45, 1001], [44, 1001], [43, 1001], [42, 1001], [41, 1001], [0.041, 2001]]];
+    var M_Slime_Massive_Yellow = ["Yellow Slime [Massive]", 1000, 85, 45, 65, 4, 2, [0, 4], [1, 105], "Images/Monster_Slime_Massive_Yellow.png", [[35, 1002], [34, 1002], [33, 1002], [32, 1002], [31, 1002], [30, 1002], [0.03, 2002]]];
+    var M_Slime_Massive_Blue = ["Blue Slime [Massive]", 1000, 5, 95, 75, 4, 6, [0, 6], [2, 147], "Images/Monster_Slime_Massive_Blue.png", [[17, 1003], [16, 1003], [15, 1003], [14, 1003], [13, 1003], [12, 1003], [0.015, 2003]]];
+    var M_Slime_Massive_Red = ["Red Slime [Massive]", 1000, 5, 120, 85, 4, 4, [0, 6], [2, 147], "Images/Monster_Slime_Massive_Red.png", [[12, 1004], [11, 1004], [10, 1004], [9, 1004], [8, 1004], [7, 1004], [0.01, 2004]]];
+
+    var M_M_Coin_Goblin;
+    var M_M_Coin_Goblin_M;
+    var M_Goblin_villager = ["Goblin [Villager]", 7000, 0, 300, 150, 6, 0, [0, 12], [120, 200], "Images/Monster_Goblin_Villager.png", [[75, 2], [50, 3], [45, 3], [35, 3], [20, 3], [15,6], [15,6], [15,6], [15,6], [30, 7], [20, 7], [10, 7], [0, 0]]];
+    var M_Goblin_Scout = ["Goblin [Scout]", 12000, 0, 250, 150, 7, 0, [0, 9], [100, 220], "Images/Monster_Goblin_Scout.png", [[75, 2], [50, 3], [45, 3], [35, 3], [20, 3], [15,6], [15,6], [15,6], [15,6], [30, 7], [20, 7], [10, 7], [0, 0]]];
+    var M_Goblin_Soldier = ["Goblin [Scout]", 20000, 0, 1000, 250, 9, 0, [11, 25], [500, 1220], "Images/Monster_Goblin_Warrior.png", [[75, 2], [50, 3], [45, 3], [35, 3], [20, 3], [15,6], [15,6], [15,6], [15,6], [30, 7], [20, 7], [10, 7], [0, 0]]];
+    var M_M_Coin_Goblin_Guard;
+    var M_M_Coin_Goblin_Knight;
+    var M_M_Coin_Goblin_RoyalKnight;
+    var M_M_Coin_Goblin_Queen;
+    var M_M_Coin_Goblin_King;
+
+    var M_M_Coin_Undead;
+    var M_M_Coin_Undead_M;
+    var M_M_Coin_Undead_Villager;
+    var M_M_Coin_Undead_Adventurer;
+    var M_M_Coin_Undead_Soldier;
+    var M_M_Coin_Undead_Guard;
+    var M_M_Coin_Undead_Knight;
+    var M_M_Coin_Undead_RoyalKnight;
+    var M_M_Coin_Undead_Queen;
+    var M_M_Coin_Undead_King;
+
+    var M_M_Coin_Human;
+    var M_M_Coin_Human_M;
+    var M_M_Coin_Human_Villager;
+    var M_M_Coin_Human_Adventurer;
+    var M_M_Coin_Human_Soldier;
+    var M_M_Coin_Human_Guard;
+    var M_M_Coin_Human_Knight;
+    var M_M_Coin_Human_RoyalKnight;
+    var M_M_Coin_Human_Queen;
+    var M_M_Coin_Human_King;
+
+    var M_M_Coin_DemiHuman_Cat_Weak;
+    var M_M_Coin_DemiHuman_Fox_Weak;
+    var M_M_Coin_DemiHuman_Dog_Weak;
+    var M_M_Coin_DemiHuman_Wolf_Weak;
+    var M_M_Coin_DemiHuman_Lizard_Weak;
+    var M_M_Coin_DemiHuman_Fox_Weak;
+
+    //["Name","OtherName",MonsterSpawns[[SpawnChance,MID],[SpawnChance,MID]]]
+    //--Areas
+    var A_Plains_A = ["Plains[A]", "Green Plains", 1, [[90, 1], [0.2, -1001]]];
+    var A_Plains_B = ["Plains[B]", "Lime Plains", 2, [[50, 1], [50, 2], [0.25, -1001]]];
+    var A_Plains_C = ["Plains[C]", "Mixed Plains", 3, [[50, 1], [66, 2], [33, 3], [33, 4], [0.3, -1001]]];
+    var A_Plains_D = ["Plains[D]", "Small Plains", 4, [[25, 1], [30, 2], [40, 3], [65, 4], [0.35, -1001]]];
+    var A_Plains_E = ["Plains[E]", "Medium Plains", 5, [[25, 5], [30, 6], [40, 7], [65, 8], [0.4, -1001]]];
+    var A_Plains_F = ["Plains[F]", "Large Plains", 6, [[25, 9], [30, 10], [40, 11], [65, 12], [0.45, -1001]]];
+    var A_Plains_G = ["Plains[G]", "Massive Plains", 7, [[25, 13], [30, 14], [40, 15], [65, 16], [0.5, -1001]]];
+
+    var A_Forest_A = ["Forest[A]", "Forest Enterance", 1, [[15, 1], [15, 2], [15, 3], [15, 4], [15, 10], [15, 6], [15, 7], [15, 8], [15, 9], [15, 10], [15, 11], [15, 12], [15, 13], [15, 14], [15, 15], [15, 16], [85, 17], [0.55, -1001]]]
+    var A_Forest_B = ["Forest[B]", "Dense Forest", 2, [[50, 18], [25, 17], [0.6, -1001], [100, 18]]]
+    var A_Forest_C = ["Forest[B]", "Forest Village", 3, [[50, 17], [25, 18], [0.65, -1001], [100, 17]]]
+
+    var A_A = [A_Plains_A,A_Plains_B,A_Plains_C,A_Plains_D,A_Plains_E,A_Plains_F,A_Plains_G];
+    var A_B = [A_Forest_A,A_Forest_B,A_Forest_C];
+
+    var A_Drops = [[[5,50]],[[6,10]],[[8,5]]] 
+    
+    var A_Cur = A_A;
+    var A_Current = A_Cur[0];
+    var A_Current_NameA = A_Current[0]
+    var A_Current_NameB = A_Current[1]
+    var A_Current_ID = A_Current[2]
+    var A_Current_Spawns = A_Current[3]
+
+    //--Player Stats
+    var P_Stat_HP = 10;
+    var P_Stat_MP = 0;
+    var P_Stat_STR = 1;
+    var P_Stat_DEF = 0;
+    var P_Stat_RGN = 0;
+    var P_Stat_DMG = P_Stat_STR;
+
+    var P_Stat_XP = 0;
+    var P_Stat_LV = 1;
+    var P_Stat_CP = 0;
+
+    var P_Stat_Weapon_DMG = 0;
+    var P_Stat_Weapon_XPM = 1;
+    var P_Stat_Weapon_DCM = 1;
+
+    //Inventory
+    var Inventory = [];
+    var InventoryAmount = [];
+    var Discovered = [];
+    var Equipped = [];
+
+    //var I1001
+
+    //--Monster Stats
+    var M_Enemy = M_Slime_Small_Green;
+    var M_Stat_Name = M_Enemy[0];
+    var M_Stat_HP = M_Enemy[1];
+    var M_Stat_MP = M_Enemy[2];
+    var M_Stat_STR = M_Enemy[3];
+    var M_Stat_DEF = M_Enemy[4];
+    var M_Stat_AGI = M_Enemy[5];
+    var M_Stat_RGN = M_Enemy[6];
+    var M_Stat_C = M_Enemy[7];
+    var M_Stat_C_Min = M_Stat_C[0];
+    var M_Stat_C_Max = M_Stat_C[1];
+    var M_Stat_XP = M_Enemy[8];
+    var M_Stat_XP_Min = M_Stat_XP[0];
+    var M_Stat_XP_Max = M_Stat_XP[1];
+    var M_Stat_Image = M_Enemy[9];
+    var M_Stat_Drops = M_Enemy[10];
+
+    var M_Defeated = 0;
+    var M_Attacked = 0;
+
+    var M_Stat_Defeated = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    var M_C_ID
+    
+    var M_Clicked = 0;
+    var M_Bar_HP = document.createElement("div");
+
+    M_Bar_HP.style.position = "relative";
+    M_Bar_HP.style.width = 126 + "px";
+    M_Bar_HP.style.height = "24px";
+    //M_Bar_HP.style.top="-174px";
+    M_Bar_HP.style.top = "-40px";
+    //M_Bar_HP.style.left="336px";
+    M_Bar_HP.style.backgroundColor = "#EA5151";
+
+    var M_Name = document.createElement("a");
+
+    M_Name.style.position = "absolute";
+    M_Name.style.top = "-17px";
+    M_Name.style.left = "0px";
+    M_Name.style.fontSize = "15px";
+    M_Name.innerHTML = M_Stat_Name;
+
+    var M_Image_Holder = document.createElement("div");
+
+    M_Image_Holder.style.overflow="Hidden";
+    M_Image_Holder.style.top="-24px";
+    M_Image_Holder.style.position="relative";
+    M_Image_Holder.style.width="126px";
+    M_Image_Holder.style.height="126px";
+
+    var M_Image = document.createElement("img");
+
+    M_Image.style.position = "absolute";
+    M_Image.style.width = "128px";
+    M_Image.style.height = "128px";
+    M_Image.style.top = "0px";
+    M_Image.style.left = "0px";
+    M_Image.style.imageRendering = "pixelated";
+    M_Image.src = M_Stat_Image;
+    //
+
+    document.getElementById("MonsterHolder").appendChild(M_Bar_HP);
+    document.getElementById("MonsterHolder").appendChild(M_Name);
+    document.getElementById("MonsterHolder").appendChild(M_Image_Holder);
+    M_Image_Holder.appendChild(M_Image);
+
+    var sitem;
+    var sitemamount;
+
+    var imagerotation = 0;
+    Quest("Quest: (Rank: D)<br><br>My two children want to stick fight, but the forest is too dangerous for them to go searching for sticks. Could you please see if you could find any sticks?<br><br>Collect:<br> - Stick(x2)<br><br>Reward:<br> + Copper Coins(x15)<br> + XP(x150)",60*60*24*2,1);
+    Quest("Quest: (Rank: C)<br><br>The slime population in the Large Plains has been increasing a lot recently. Due to their strength most people can't defeat them and the people who can, can usually also defeat Massive Slime. Please reduce the Large Slime population by defeating 4000 Large Slimes<br><br>Defeat:<br> - Slime_Large_*(x4000)<br><br>Reward:<br> + Slime_Green(x1000)<br> + Slime_Yellow(x1000)<br> + Slime_Blue(x1000)<br> + Slime_Red(x1000)<br> + Copper Coins(x5000)<br> + XP(x8000)",60*60*24*2,5);
+    
+    if(document.getElementById("LevelUp").checked)
+        CreateMessage("<br><strong>LEVEL UP!(1)<br>STR: 0 -> 1</strong><br>",document.getElementById("LevelUpTime").value)
+
+    
+
+    //RunType("Chest");
+    ShowCrafts("None");
+
+
+    const root = document.documentElement;
+    
+    document.addEventListener('mousemove', evt => {
+        let x = evt.clientX / innerWidth;
+        let y = evt.clientY / innerHeight;
+    
+        root.style.setProperty('--mouse-x', x);
+        root.style.setProperty('--mouse-y', y);
+    });
+    var tooltips = document.querySelectorAll('.tooltip span');
+    document.oncontextmenu = function(e) { e.preventDefault(); e.stopPropagation(); }
+    window.onmousemove = function (e) {
+        var x = (e.clientX + 20) + 'px',
+            y = (e.clientY + 20) + 'px';
+        for (var i = 0; i < tooltips.length; i++) {
+            tooltips[i].style.top = y;
+            tooltips[i].style.left = x;
+        }
+    };window.onmousedown = function (e) {
+        var x = (e.clientX + 20) + 'px',
+            y = (e.clientY + 20) + 'px';
+        for (var i = 0; i < tooltips.length; i++) {
+            tooltips[i].style.top = y;
+            tooltips[i].style.left = x;
+        }
+    };
+    // onmousedown="rightclick()" 
+    function rightclick(_id) {
+        var rightclick;
+        var e = window.event;
+        if (e.which) rightclick = (e.which == 3);
+        else if (e.button) rightclick = (e.button == 2);
+        if(rightclick) {
+            var amt = 1
+            if(event.shiftKey) {
+                amt = InventoryAmount[Inventory.indexOf("I"+_id)]
+            }
+            DestroyItem("I" + _id, amt);
+            if (_id == 1) {
+                CreateItem(4, 1*amt);
+                CreateItem(6, 1*amt);
+                CreateItem(7, 1*amt);
+            }
+            if (_id == 2) {
+                CreateItem(3, 2*amt);
+            }
+            if (_id == 21) {
+                CreateItem(6, 2*amt);
+            }
+            if (_id == 2001) {
+                CreateItem(1001, 750*amt);
+            }
+            if (_id == 2002) {
+                CreateItem(1002, 750*amt);
+            }
+            if (_id == 2003) {
+                CreateItem(1003, 750*amt);
+            }
+            if (_id == 2004) {
+                CreateItem(1004, 750*amt);
+            }
+            if (_id == 2005) {
+                CreateItem(4, 2*amt);
+                CreateItem(6, 3*amt);
+            }
+            if (_id == 2006) {
+                CreateItem(3, 4*amt);
+                CreateItem(4, 2*amt);
+                CreateItem(6, 2*amt);
+            }
+            if (_id == 2007) {
+                CreateItem(3, 4*amt);
+                CreateItem(4, 2*amt);
+                CreateItem(6, 2*amt);
+            }
+            if (_id == 2008) {
+                CreateItem(1001, 500*amt);
+                CreateItem(1002, 500*amt);
+                CreateItem(1003, 500*amt);
+                CreateItem(1004, 500*amt);
+            }
+            if (_id == 2009) {
+                CreateItem(4, 2*amt);
+                CreateItem(5, 500*amt);
+                CreateItem(6, 2*amt);
+            }
+            if (_id == 2010) {
+                CreateItem(4, 2*amt);
+                CreateItem(6, 2*amt);
+                CreateItem(8, 3*amt);
+            }
+            if (_id == 2011) {
+                CreateItem(4, 2*amt);
+                CreateItem(6, 2*amt);
+                CreateItem(9, 5*amt);
+                CreateItem(10, 5*amt);
+            }
+            if (_id == 2012) {
+                CreateItem(4, 2*amt);
+                CreateItem(6, 2*amt);
+                CreateItem(9, 20*amt);
+                CreateItem(10, 20*amt);
+            }
+            if (_id == 2013) {
+                CreateItem(4, 2*amt);
+                CreateItem(6, 2*amt);
+                CreateItem(9, 80*amt);
+                CreateItem(10, 80*amt);
+            }
+            if (_id == 2014) {
+                CreateItem(4, 2*amt);
+                CreateItem(6, 2*amt);
+                CreateItem(9, 240*amt);
+                CreateItem(10, 240*amt);
+            }
+            if (_id == 2015) {
+                CreateItem(4, 2*amt);
+                CreateItem(6, 2*amt);
+                CreateItem(9, 720*amt);
+                CreateItem(10, 720*amt);
+            }
+        } else {
+            if(event.shiftKey) {
+                var x = InventoryAmount[Inventory.indexOf("I"+_id)];
+                var y = Inventory[Inventory.indexOf("I"+_id)];
+                if(sitem==undefined) {
+                    sitem = y;
+                    sitamount = x;
+                } else {
+                    
+                    var a = InventoryAmount[Inventory.indexOf(sitem)];
+                    var b = Inventory[Inventory.indexOf(sitem)];
+
+                    console.log(Inventory+"\n"+InventoryAmount);
+                    if (Inventory.indexOf(sitem)>Inventory.indexOf("I"+_id)) {
+                        InventoryAmount.splice(Inventory.indexOf("I"+_id),1,a);
+                        InventoryAmount.splice(Inventory.indexOf(sitem),1,x);
+                        Inventory.splice(Inventory.indexOf(sitem),1,"I"+_id);
+                        Inventory.splice(Inventory.indexOf("I"+_id),1,sitem);
+                    } else {
+                        InventoryAmount.splice(Inventory.indexOf(sitem),1,x);
+                        InventoryAmount.splice(Inventory.indexOf("I"+_id),1,a);
+                        Inventory.splice(Inventory.indexOf("I"+_id),1,sitem);
+                        Inventory.splice(Inventory.indexOf(sitem),1,"I"+_id);
+                    }
+
+                    console.log(Inventory+"\n"+InventoryAmount);
+                    
+                    sitem = undefined;
+                    sitemamount = undefined;
+                }
+            } else {
+                equip(_id);
+                Consume(_id);
+            }
+        }
+        DrawInv();
+    }
+    function Region(_R) {
+        switch(_R) {
+            case 'Plains':
+                A_Cur=A_A;
+                break;
+            case 'Forest':
+                A_Cur=A_B;
+                break;
+        }
+        A_Current = A_Cur[0];
+        A_Current_NameA = A_Current[0]
+        A_Current_NameB = A_Current[1]
+        A_Current_ID = A_Current[2]
+        A_Current_Spawns = A_Current[3]
+        A_Current_NameA = A_Current[0];
+        A_Current_NameB = A_Current[1];
+        A_Current_ID = A_Current[2];
+        A_Current_Spawns = A_Current[3];
+        CreateMonster();
+        document.getElementById("Area").innerHTML=A_Current_ID;
+        document.getElementById("AreaName").innerHTML=A_Current_NameB;
+    }
+    function RunType(_type) {
+        if(_type=="Chest") {
+            A_Plains_A = ["Plains[A]", "Outer Plains", 1, [[100, -1001]]];
+            A_Plains_B = ["Plains[B]", "Rim Plains", 2, [[100, -1001]]];
+            A_Plains_C = ["Plains[C]", "Inner Plains", 3, [[100, -1001]]];
+            A_Plains_D = ["Plains[D]", "Far Plains", 4, [[100, -1001]]];
+            A_Plains_E = ["Plains[E]", "End Plains", 5, [[100, -1001]]];
+            A_Plains_F = ["Plains[F]", "Edge Plains", 6, [[100, -1001]]];
+            A_Plains_G = ["Plains[G]", "Forest Plains", 7, [[100, -1001]]];
+            A_A = [A_Plains_A, A_Plains_B, A_Plains_C, A_Plains_D, A_Plains_E, A_Plains_F, A_Plains_G];
+            A_Cur = A_A;
+            A_Current = A_Cur[0];
+            A_Current_NameA = A_Current[0];
+            A_Current_NameB = A_Current[1];
+            A_Current_ID = A_Current[2];
+            A_Current_Spawns = A_Current[3];
+            GoToArea(1);
+            CreateMonster(-1001);
+        }
+    }
+    function Quest(_m,_na,_id) {
+        var text = String(_m);
+        var x = document.getElementById("QuestInfo");
+        
+        var MessageBoxHolder = document.createElement("div");
+
+        MessageBoxHolder.style.backgroundColor = "#F5F5F5";
+        MessageBoxHolder.style.width = "116px";
+        MessageBoxHolder.style.margin = "2px";
+        MessageBoxHolder.style.padding = "2px";
+        MessageBoxHolder.style.float = "left";
+        MessageBoxHolder.id = _id;
+
+        var MessageBox = document.createElement("a");
+        MessageBox.innerHTML = text+"<button onclick='TIQ("+_id+")'>Turn in quest</button><br><a style='font-size:7px;'>Quest ID:"+_id+"</a>";
+        x.insertBefore(MessageBoxHolder, parent.firstChild);
+        MessageBoxHolder.insertBefore(MessageBox, parent.firstChild);
+        var scrollHeight = x.scrollHeight;
+    }
+    function TS(_a) {
+        document.getElementById("Settings").style.visibility = 'visible';
+        if (_a) {
+            document.getElementById("Settings").style.visibility = 'hidden';
+        }
+    }
+    function TIQ(_id) {
+        switch(_id) {
+            case 1:
+                if (InventoryAmount[Inventory.indexOf("I6")]>=2) {
+                    if(document.getElementById("QuestComplete").checked)
+                        CreateMessage("<strong>Quest Complete!<br> - Stick(x2)<br> + XP(x120)<br> + Copper Coins(x15)</strong>",document.getElementById("QuestCompleteTime").value);
+                    DestroyItem("I6", 2);
+                    C_Coin_Copper+=15;
+                    P_Stat_XP+=120;
+                    document.getElementById(_id).remove();
+                    
+                    Quest("Quest: (Rank: D)<br><br>My mom finally got me and my brother a stick, but we eventually got bored of fighting eachother and tried to fight a slime. When we fought the slime our stick disolved. I was so mad I almost grabbed my dads wooden sword to attack it but my brother talked me out of it. Now we need two more stick so our mom doesnt realize we already lost the ones she got us.<br><br>Collect:<br> - Stick(x2)<br><br>Reward:<br> + Wooden Sword of the childrens father<br> + XP(x200)",60*60*24*1,2);
+                }
+                break;
+            case 2:
+                if (InventoryAmount[Inventory.indexOf("I6")]>=2) {
+                    if(document.getElementById("QuestComplete").checked)
+                        CreateMessage("<strong>Quest Complete!<br> - Stick(x2)<br> + Sword_Wooden(x15)<br> + XP(x200)</strong>",document.getElementById("QuestCompleteTime").value);
+                    DestroyItem("I6", 2);
+                    P_Stat_XP+=200;
+                    CreateItem(2005,1);
+                    document.getElementById(_id).remove();
+                    
+                    Quest("Quest: (Rank: D)<br><br>My wooden sword disapeared. I need a new one<br><br>Collect:<br> - Sword_Wooden(x1)<br><br>Reward:<br> + Copper Coins(x500)<br> + XP(x1000)",60*60*24*1,3);
+                }
+                break;
+            case 3:
+                if (InventoryAmount[Inventory.indexOf("I2005")]>=1) {
+                    if(document.getElementById("QuestComplete").checked)
+                        CreateMessage("<strong>Quest Complete!<br> - Sword_Wooden(x2)<br> + XP(x1000)<br> + Copper Coins(x500)</strong>",document.getElementById("QuestCompleteTime").value);
+                    DestroyItem("I2005", 1);
+                    C_Coin_Copper+=500;
+                    P_Stat_XP+=1000;
+                    document.getElementById(_id).remove();
+                }
+                break;
+            case 4:
+                if (InventoryAmount[Inventory.indexOf("I2007")]>=1) {
+                    if(document.getElementById("QuestComplete").checked)
+                        CreateMessage("<strong>Quest Complete!<br> - Sword_Stone(x1)<br> + silver(x2)<br> + XP(x1350)<br> + Copper Coins(x150)</strong>", document.getElementById("QuestCompleteTime").value);
+                    DestroyItem("I2007", 1);
+                    CreateItem(8,2);
+                    C_Coin_Copper+=150;
+                    P_Stat_XP+=1350;
+                    document.getElementById(_id).remove();
+                }
+                break;
+            case 5:
+                if (M_Stat_Defeated[9]+M_Stat_Defeated[10]+M_Stat_Defeated[11]+M_Stat_Defeated[12]>=4000) {
+                    if(document.getElementById("QuestComplete").checked)
+                        CreateMessage("<strong>Quest Complete!<br> + Slime_Green(x1000)<br> + Slime_Yellow(x1000)<br> + Slime_Blue(x1000)<br> + Slime_Red(x1000)<br> + XP(x8000)<br> + Copper Coins(x5000)</strong>", document.getElementById("QuestCompleteTime").value);
+                    DestroyItem("I2007", 1);
+                    CreateItem(1001,1000);
+                    CreateItem(1002,1000);
+                    CreateItem(1003,1000);
+                    CreateItem(1004,1000);
+                    C_Coin_Copper+=5000;
+                    P_Stat_XP+=8000;
+                    document.getElementById(_id).remove();
+                } else {
+                    CreateMessage("Large Slimes Defeated: "+(M_Stat_Defeated[9]+M_Stat_Defeated[10]+M_Stat_Defeated[11]+M_Stat_Defeated[12])+"/4000 "+((M_Stat_Defeated[9]+M_Stat_Defeated[10]+M_Stat_Defeated[11]+M_Stat_Defeated[12])/4000)*100+"%")
+                }
+                break;
+        }
+        LVL();
+            
+    }
+    function CreateMessage(_m,_t) {
+        var time = 15;
+        if (_t!=undefined) {
+            time = _t;
+        }
+        var text = String(_m)+"<br>";
+        var x = document.getElementById("Info")
+
+        var MessageBox = document.createElement("a")
+        MessageBox.innerHTML = text;
+        x.insertBefore(MessageBox, parent.firstChild);
+
+        setInterval(function() {MessageBox.remove()},time*1000)
+        var scrollHeight = x.scrollHeight;
+        if(document.getElementById("SendBottom").checked)
+            x.scrollTo(0, scrollHeight);
+    }
+    function CreateAllItems() {
+        CreateItem(1,37159)
+        CreateItem(2,37159)
+        CreateItem(3,37159)
+        CreateItem(4,37159)
+        CreateItem(5,37159)
+        CreateItem(6,37159)
+        CreateItem(7,37159)
+        CreateItem(8,37159)
+        CreateItem(9,37159)
+        CreateItem(10,37159)
+        CreateItem(11,37159)
+        CreateItem(13,37159)
+        CreateItem(14,37159)
+        CreateItem(15,37159)
+        CreateItem(21,37159)
+        CreateItem(1001,37159)
+        CreateItem(1002,37159)
+        CreateItem(1003,37159)
+        CreateItem(1004,37159)
+        CreateItem(2001,37159)
+        CreateItem(2002,37159)
+        CreateItem(2003,37159)
+        CreateItem(2004,37159)
+        CreateItem(2005,37159)
+        CreateItem(2006,37159)
+        CreateItem(2007,37159)
+        CreateItem(2008,37159)
+        CreateItem(2009,37159)
+        CreateItem(2010,37159)
+        CreateItem(2011,37159)
+        CreateItem(2012,37159)
+        CreateItem(2013,37159)
+        CreateItem(2014,37159)
+        CreateItem(2015,37159)
+        CreateItem(2505,37159)
+        CreateItem(2506,37159)
+        CreateItem(2507,37159)
+        CreateItem(2509,37159)
+        CreateItem(2510,37159)
+        CreateItem(2511,37159)
+    }
+    function GoToArea(_id) {
+        var x = _id;
+        var c = true;
+        if (x == "Next") {
+            if (A_Current_ID < A_Cur.length) {
+                x = A_Current_ID + 1;
+                //GoToArea(A_Current_ID + 1)
+            } else {
+                c =false;
+            }
+        } else if (x == "Last") {
+            if (A_Current_ID > 1) {
+                x = A_Current_ID - 1;
+            } else {
+                c = false
+            }
+        }
+        CreateMonster();
+        if (c) {
+            A_Current = A_Cur[x-1];
+            A_Current_NameA = A_Current[0]
+            A_Current_NameB = A_Current[1]
+            A_Current_ID = A_Current[2]
+            A_Current_Spawns = A_Current[3]
+            A_Current_NameA = A_Current[0];
+            A_Current_NameB = A_Current[1];
+            A_Current_ID = A_Current[2];
+            A_Current_Spawns = A_Current[3];
+            CreateMonster();
+            document.getElementById("Area").innerHTML=A_Current_ID;
+            document.getElementById("AreaName").innerHTML=A_Current_NameB;
+        }
+    }
+    function ShowCrafts(_type) {
+        var y = document.getElementsByClassName("Craft");
+        for(i=0; i < y.length;i++) {
+            y[i].style.display="none";
+        }
+        document.getElementById("CraftingMenuTitle").innerHTML="Crafting Menu"
+        switch(_type) {
+            case "Weapons":
+                y = document.getElementsByClassName("CWeapon");
+                document.getElementById("CraftingMenuTitle").innerHTML="Crafting Menu: Weapons"
+                break;
+            case "Armour":
+                y = document.getElementsByClassName("CArmour");
+                document.getElementById("CraftingMenuTitle").innerHTML="Crafting Menu: Armour"
+                break;
+            case "Items":
+                y = document.getElementsByClassName("CItem");
+                document.getElementById("CraftingMenuTitle").innerHTML="Crafting Menu: Items"
+                break;
+            case "Blades":
+                y = document.getElementsByClassName("CBlade");
+                document.getElementById("CraftingMenuTitle").innerHTML="Crafting Menu: Blades"
+                break;
+            case "All":
+                document.getElementById("CraftingMenuTitle").innerHTML="Crafting Menu: all"
+                break;
+            case "None":
+                y = document.getElementsByClassName("nan");
+                break;
+        }
+        for(i=0; i < y.length;i++) {
+            y[i].style.display="block";
+        }
+    }
+    function LVL() {
+        var XPR = P_Stat_LV * P_Stat_LV * P_Stat_LV;
+        for (var i = 0; P_Stat_XP / (P_Stat_LV * P_Stat_LV * P_Stat_LV) >= 1; i++) {
+            if (P_Stat_XP >= XPR) {
+                var PreSTR = Math.round(P_Stat_STR * 100) / 100;
+                P_Stat_XP -= XPR;
+                P_Stat_LV++;
+                //P_Stat_STR = Math.sqrt(Math.sqrt(Math.sqrt(Math.sqrt(Math.sqrt(Math.sqrt(P_Stat_LV * Math.sqrt(P_Stat_LV * 2))))) * Math.sqrt(Math.sqrt(Math.sqrt(Math.sqrt(Math.sqrt(Math.sqrt(P_Stat_LV) * P_Stat_LV)*2)*1.5)*1.33)*1.25)*1.20)) + ((0.02 * P_Stat_LV) * (0.02 * P_Stat_LV));
+                P_Stat_STR = 1 + Math.pow(0.02 * P_Stat_LV,1.5)
+
+                P_Stat_DMG = P_Stat_STR + P_Stat_Weapon_DMG * (P_Stat_STR / 10 + 1);
+                if(document.getElementById("LevelUp").checked)
+                    CreateMessage("<br><strong>LEVEL UP!(" + P_Stat_LV + ")<br>STR: " + PreSTR + " -> " + Math.round(P_Stat_STR * 100) / 100+"</strong><br>",document.getElementById("LevelUpTime").value)
+
+            }
+        }
+    }
+    function AttackMonster(_a) {
+        if (P_Stat_DMG > M_Stat_DEF) {
+            M_Attacked++;
+            M_Stat_HP -= P_Stat_DMG - M_Stat_DEF;
+            
+            if (_a == "click") {
+                M_Clicked++;
+                imagerotation = randomNumber(-35,35);
+                M_Image.style.transform = 'rotate(' + imagerotation + 'deg)';
+            }
+            MonsterAttack();
+        } else{
+            GoToArea("Last");
+        }
+
+        if (M_Stat_HP <= 0) {
+            MonsterDefeat();
+        }
+    }
+    function MonsterAttack() {
+    }
+    function MonsterDefeat() {
+        MonsterDropStat();
+        MonsterDrop();
+        CreateMonster();
+        LVL();
+        if(M_C_ID!=-1001) {
+            M_Defeated++;
+            if(M_Stat_Defeated[M_C_ID]!=undefined) {
+                M_Stat_Defeated[M_C_ID] += 1;
+            } else {
+                M_Stat_Defeated[M_C_ID] = 1;
+            }
+        } else {
+            console.log("System thinks chest was defeated...")
+        }
+    }
+    function MonsterDropStat() {
+        var C = Math.round(randomNumber(M_Stat_C_Min, M_Stat_C_Max));
+        var XP = Math.round(randomNumber(M_Stat_XP_Min, M_Stat_XP_Max));
+        C_Coin_Copper += C * C_Coin_M;
+        P_Stat_XP += XP * P_Stat_Weapon_XPM;
+    }
+    function MonsterDrop() {
+        var x;
+        for (i = 0; i < M_Stat_Drops.length; i++) {
+            var MonsterDrop = M_Stat_Drops[i];
+            var dropChance = MonsterDrop[0];
+            var itemId = MonsterDrop[1];
+
+            x = randomNumber(0, 100);
+
+            if (x <= dropChance * P_Stat_Weapon_DCM) {
+                var y = CreateItem(itemId);
+            }
+        }
+    }
+    function CreateMonster(_id) {
+        for (i = 0; i < A_Current_Spawns.length; i++) {
+            SpawnChance = A_Current_Spawns[i][0];
+            MID = A_Current_Spawns[i][1];
+            M_C_ID = MID;
+            var x = randomNumber(0, 100);
+            if(_id!=undefined) {
+                MID = _id;
+                //x=0;
+            }
+            if (x < SpawnChance) {
+                M_Enemy = Monster(MID);
+                M_Stat_Name = M_Enemy[0];
+                M_Stat_HP = M_Enemy[1];
+                M_Stat_MP = M_Enemy[2];
+                M_Stat_STR = M_Enemy[3];
+                M_Stat_DEF = M_Enemy[4];
+                M_Stat_AGI = M_Enemy[5];
+                M_Stat_RGN = M_Enemy[6];
+                M_Stat_C = M_Enemy[7];
+                M_Stat_C_Min = M_Stat_C[0];
+                M_Stat_C_Max = M_Stat_C[1];
+                M_Stat_XP = M_Enemy[8];
+                M_Stat_XP_Min = M_Stat_XP[0];
+                M_Stat_XP_Max = M_Stat_XP[1];
+                M_Stat_Image = M_Enemy[9];
+                M_Stat_Drops = M_Enemy[10];
+                M_Name.innerHTML = M_Stat_Name;
+                M_Image.src = M_Stat_Image;
+                break;
+            }
+        }
+    }
+    function Monster(_id) {
+        switch (_id) {
+            case -1001:
+                if(document.getElementById("FoundChest").checked)
+                    CreateMessage("Found: Wooden Chest!",document.getElementById("FoundChestTime").value)
+                return O_Chest_Wood;
+                break;
+            case 1:
+                return M_Slime_Small_Green;
+                break;
+            case 2:
+                return M_Slime_Small_Yellow;
+                break;
+            case 3:
+                return M_Slime_Small_Blue;
+                break;
+            case 4:
+                return M_Slime_Small_Red;
+                break;
+            case 5:
+                return M_Slime_Green;
+                break;
+            case 6:
+                return M_Slime_Yellow;
+                break;
+            case 7:
+                return M_Slime_Blue;
+                break;
+            case 8:
+                return M_Slime_Red;
+                break;
+            case 9:
+                return M_Slime_Large_Green;
+                break;
+            case 10:
+                return M_Slime_Large_Yellow;
+                break;
+            case 11:
+                return M_Slime_Large_Blue;
+                break;
+            case 12:
+                return M_Slime_Large_Red;
+                break;
+            case 13:
+                return M_Slime_Massive_Green;
+                break;
+            case 14:
+                return M_Slime_Massive_Yellow;
+                break;
+            case 15:
+                return M_Slime_Massive_Blue;
+                break;
+            case 16:
+                return M_Slime_Massive_Red;
+                break;
+            case 17:
+                return M_Goblin_villager;
+                break;
+            case 18:
+                return M_Goblin_Scout;
+                break;
+            default:
+                return M_Slime_Small_Green;
+                break;
+        }
+    }
+    function CreateItem(_id,_amount) {
+        var amount;
+        if(_amount==undefined) {
+            amount=1;
+        } else {
+            amount=_amount;
+        }
+        if (Inventory.indexOf("I" + _id) != -1) {
+            InventoryAmount[Inventory.indexOf("I" + _id)] += amount;
+            if(document.getElementById("ItemAdded").checked)
+                CreateMessage("Item ID Added: "+String("I"+_id),document.getElementById("ItemAddedTime").value);
+        } else if (Inventory.length <= 35) {
+            Inventory.push("I" + _id);
+            if(Discovered.indexOf("I" + _id) == -1) {
+                Discovered[_id]="I" + _id;
+                if(document.getElementById("ItemDiscovered").checked)
+                    CreateMessage("Discovered a new Item (I" + _id + ")",document.getElementById("ItemDiscoveredTime").value);
+            }
+            InventoryAmount[Inventory.indexOf("I" + _id)] = amount;
+        } else {
+            CreateMessage("Not enough space in Inventory to hold item\nLost Item: I"+_id,60*60*24);
+        }
+        DrawInv();
+    }
+    function CraftItem(_id) {
+        var amount = document.querySelector('input').value;
+        if (amount < 0) {
+            CreateMessage("You can not craft a negetive amount of items",10);
+            amount = 0;
+        }
+        if (amount == undefined) {
+            amount = 1;
+        }
+        var CanMake=false;
+        //array of items needed
+        //for statement checking if items exist and storing the items that exist to an array
+        //if array of existing items lenght = array of items needed length
+        // go remove each existing item untill reaches need requirements
+        //add item
+        switch(_id){
+            case 4:
+                if (InventoryAmount[Inventory.indexOf("I1001")]>=10*amount) {
+                    if (InventoryAmount[Inventory.indexOf("I1002")]>=10*amount) {
+                        DestroyItem("I1001", 10*amount);
+                        DestroyItem("I1002", 10*amount);
+                        CanMake=true;
+                    }
+                }
+                break;
+            case 5:
+                if (InventoryAmount[Inventory.indexOf("I1001")]>=5*amount) {
+                    DestroyItem("I1001", 5*amount);
+                    CanMake=true;
+                }
+                break;
+            case 6:
+                if (InventoryAmount[Inventory.indexOf("I1001")]>=50*amount) {
+                    DestroyItem("I1001", 50*amount);
+                    CanMake=true;
+                }
+                break;
+            case 7:
+                if (InventoryAmount[Inventory.indexOf("I1003")]>=25*amount) {
+                    if (InventoryAmount[Inventory.indexOf("I1004")]>=25*amount) {
+                        DestroyItem("I1003", 25*amount);
+                        DestroyItem("I1004", 25*amount);
+                        CanMake=true;
+                    }
+                }
+                break;
+            case 8:
+                if (InventoryAmount[Inventory.indexOf("I1003")]>=75*amount) {
+                    if (InventoryAmount[Inventory.indexOf("I1004")]>=75*amount) {
+                        DestroyItem("I1003", 75*amount);
+                        DestroyItem("I1004", 75*amount);
+                        CanMake=true;
+                    }
+                }
+                break;
+            case 9:
+                if (InventoryAmount[Inventory.indexOf("I8")]>=10*amount) {
+                    if (InventoryAmount[Inventory.indexOf("I1001")]>=750*amount) {
+                        DestroyItem("I8", 10*amount);
+                        DestroyItem("I1001", 750*amount);
+                        CanMake=true;
+                    }
+                }
+                break;
+            case 10:
+                if (InventoryAmount[Inventory.indexOf("I8")]>=10*amount) {
+                    if (InventoryAmount[Inventory.indexOf("I1004")]>=750*amount) {
+                        DestroyItem("I8", 10*amount);
+                        DestroyItem("I1004", 750*amount);
+                        CanMake=true;
+                    }
+                }
+                break;
+            case 11:
+                if (InventoryAmount[Inventory.indexOf("I8")]>=100*amount) {
+                    if (InventoryAmount[Inventory.indexOf("I9")]>=10*amount) {
+                        if (InventoryAmount[Inventory.indexOf("I10")]>=10*amount) {
+                            DestroyItem("I8", 100*amount);
+                            DestroyItem("I9", 10*amount);
+                            DestroyItem("I10", 10*amount);
+                            CanMake=true;
+                        }
+                    }
+                }
+                break;
+            case 15:
+                if (InventoryAmount[Inventory.indexOf("I13")]>=5*amount) {
+                    if (InventoryAmount[Inventory.indexOf("I14")]>=35*amount) {
+                        DestroyItem("I13", 5*amount);
+                        DestroyItem("I14", 35*amount);
+                        CanMake=true;
+                    }
+                }
+                break;
+            case 21:
+                if (InventoryAmount[Inventory.indexOf("I6")]>=4*amount) {
+                    DestroyItem("I6", 4*amount);
+                    CanMake=true;
+                }
+                break;
+            case 2001:
+                if (InventoryAmount[Inventory.indexOf("I1001")]>=1000*amount) {
+                    DestroyItem("I1001", 1000*amount);
+                    CanMake=true;
+                }
+                break;
+            case 2002:
+                if (InventoryAmount[Inventory.indexOf("I1002")]>=1000*amount) {
+                    DestroyItem("I1002", 1000*amount);
+                    CanMake=true;
+                }
+                break;
+            case 2003:
+                if (InventoryAmount[Inventory.indexOf("I1003")]>=1000*amount) {
+                    DestroyItem("I1003", 1000*amount);
+                    CanMake=true;
+                }
+                break;
+            case 2004:
+                if (InventoryAmount[Inventory.indexOf("I1004")]>=1000*amount) {
+                    DestroyItem("I1004", 1000*amount);
+                    CanMake=true;
+                }
+                break;
+            case 2005:
+                if (InventoryAmount[Inventory.indexOf("I2505")]>=1*amount) {
+                    if (InventoryAmount[Inventory.indexOf("I21")]>=1*amount) {
+                        if (InventoryAmount[Inventory.indexOf("I4")]>=4*amount) {
+                            DestroyItem("I2505", 1*amount);
+                            DestroyItem("I21", 1*amount);
+                            DestroyItem("I4", 4*amount);
+                            CanMake=true;
+                        }
+                    }
+                }
+                break;
+            case 2006:
+                if (InventoryAmount[Inventory.indexOf("I21")]>=1*amount) {
+                    if (InventoryAmount[Inventory.indexOf("I2506")]>=1*amount) {
+                        if (InventoryAmount[Inventory.indexOf("I4")]>=4*amount) {
+                            DestroyItem("I21", 1*amount);
+                            DestroyItem("I2506", 1*amount);
+                            DestroyItem("I4", 4*amount);
+                            CanMake=true;
+                        }
+                    }
+                }
+                break;
+            case 2007:
+                if (InventoryAmount[Inventory.indexOf("I21")]>=1*amount) {
+                    if (InventoryAmount[Inventory.indexOf("I2507")]>=1*amount) {
+                        if (InventoryAmount[Inventory.indexOf("I4")]>=4*amount) {
+                            DestroyItem("I21", 1*amount);
+                            DestroyItem("I2507", 1*amount);
+                            DestroyItem("I4", 4*amount);
+                            CanMake=true;
+                        }
+                    }
+                }
+                break;
+            case 2008:
+                if (Inventory.indexOf("I2001")>=1*amount) {
+                    if (Inventory.indexOf("I2002")>=1*amount) {
+                        if (Inventory.indexOf("I2003")>=1*amount) {
+                            if (Inventory.indexOf("I2004")>=1*amount) {
+                                DestroyItem("I2001",1*amount);
+                                DestroyItem("I2002",1*amount);
+                                DestroyItem("I2003",1*amount);
+                                DestroyItem("I2004",1*amount);
+                                CanMake=true;
+                            }
+                        }
+                    }
+                }
+                break;
+            case 2009:
+                if (InventoryAmount[Inventory.indexOf("I21")]>=1*amount) {
+                    if (InventoryAmount[Inventory.indexOf("I2509")]>=1*amount) {
+                        if (InventoryAmount[Inventory.indexOf("I4")]>=4*amount) {
+                            DestroyItem("I21", 1*amount);
+                            DestroyItem("I2509", 1*amount);
+                            DestroyItem("I4", 4*amount);
+                            CanMake=true;
+                        }
+                    }
+                }
+                break;
+            case 2010:
+                if (InventoryAmount[Inventory.indexOf("I21")]>=1*amount) {
+                    if (InventoryAmount[Inventory.indexOf("I2510")]>=1*amount) {
+                        if (InventoryAmount[Inventory.indexOf("I4")]>=4*amount) {
+                            DestroyItem("I21", 1*amount);
+                            DestroyItem("I2510", 1*amount);
+                            DestroyItem("I4", 4*amount);
+                            CanMake=true;
+                        }
+                    }
+                }
+                break;
+            case 2011:
+                if (InventoryAmount[Inventory.indexOf("I21")]>=1*amount) {
+                    if (InventoryAmount[Inventory.indexOf("I4")]>=4*amount) {
+                        if (InventoryAmount[Inventory.indexOf("I2511")]>=1*amount) {
+                            DestroyItem("I21", 1*amount);
+                            DestroyItem("I4", 4*amount);
+                            DestroyItem("I2511", 1*amount);
+                            CanMake=true;
+                        }
+                    }
+                }
+                break;
+            case 2012:
+                if (InventoryAmount[Inventory.indexOf("I2011")]>=4*amount) {
+                    DestroyItem("I2011", 4*amount);
+                    CanMake=true;
+                }
+                break;
+            case 2013:
+                if (InventoryAmount[Inventory.indexOf("I2012")]>=4*amount) {
+                    DestroyItem("I2012", 4*amount);
+                    CanMake=true;
+                }
+                break;
+            case 2014:
+                if (InventoryAmount[Inventory.indexOf("I2013")]>=4*amount) {
+                    DestroyItem("I2013", 4*amount);
+                    CanMake=true;
+                }
+                break;
+            case 2015:
+                if (InventoryAmount[Inventory.indexOf("I2014")]>=4*amount) {
+                    DestroyItem("I2014", 4*amount);
+                    CanMake=true;
+                }
+                break;
+            case 2016:
+                if (InventoryAmount[Inventory.indexOf("I21")]>=1*amount) {
+                    if (InventoryAmount[Inventory.indexOf("I4")]>=4*amount) {
+                        if (InventoryAmount[Inventory.indexOf("I2516")]>=1*amount) {
+                            DestroyItem("I21", 1*amount);
+                            DestroyItem("I4", 4*amount);
+                            DestroyItem("I2516", 1*amount);
+                            CanMake=true;
+                        }
+                    }
+                }
+                break;
+            case 2017:
+                if (InventoryAmount[Inventory.indexOf("I21")]>=1*amount) {
+                    if (InventoryAmount[Inventory.indexOf("I4")]>=4*amount) {
+                        if (InventoryAmount[Inventory.indexOf("I2517")]>=1*amount) {
+                            DestroyItem("I21", 1*amount);
+                            DestroyItem("I4", 4*amount);
+                            DestroyItem("I2517", 1*amount);
+                            CanMake=true;
+                        }
+                    }
+                }
+                break;
+            case 2505:
+                if (InventoryAmount[Inventory.indexOf("I6")]>=1*amount) {
+                    DestroyItem("I6", 1*amount);
+                    CanMake=true;
+                }
+                break;
+            case 2506:
+                if (InventoryAmount[Inventory.indexOf("I3")]>=8*amount) {
+                    DestroyItem("I3", 8*amount);
+                    CanMake=true;
+                }
+                break;
+            case 2507:
+                if (InventoryAmount[Inventory.indexOf("I7")]>=12*amount) {
+                    DestroyItem("I7", 12*amount);
+                    CanMake=true;
+                }
+                break;
+            case 2509:
+                if (InventoryAmount[Inventory.indexOf("I5")]>=2000*amount) {
+                    DestroyItem("I5", 2000*amount);
+                    CanMake=true;
+                }
+                break;
+            case 2510:
+                if (InventoryAmount[Inventory.indexOf("I8")]>=24*amount) {
+                    DestroyItem("I8", 24*amount);
+                    CanMake=true;
+                }
+                break;
+            case 2511:
+                if (InventoryAmount[Inventory.indexOf("I9")]>=5*amount) {
+                    if (InventoryAmount[Inventory.indexOf("I10")]>=5*amount) {
+                        DestroyItem("I9", 5*amount);
+                        DestroyItem("I10", 5*amount);
+                        CanMake=true;
+                    }
+                }
+                break;
+            case 2516:
+                if (InventoryAmount[Inventory.indexOf("I9")]>=32*amount) {
+                    DestroyItem("I9", 32*amount);
+                    CanMake=true;
+                }
+                break;
+            case 2516:
+                if (InventoryAmount[Inventory.indexOf("I10")]>=32*amount) {
+                    DestroyItem("I10", 32*amount);
+                    CanMake=true;
+                }
+                break;
+            case 4001:
+                if (InventoryAmount[Inventory.indexOf("I6")]>=5*amount) {
+                    if (InventoryAmount[Inventory.indexOf("I4")]>=500*amount) {
+                        DestroyItem("I6", 5*amount);
+                        DestroyItem("I4", 500*amount);
+                        CanMake=true;
+                    }
+                }
+                break;
+        }
+        if(CanMake) {
+            CreateItem(_id, Number(amount));
+        }
+    }
+    function DestroyItem(_id, _amount) {
+        var y = Inventory.indexOf(_id);
+        if (y != -1) {
+            if(InventoryAmount[y] >= _amount){
+                InventoryAmount[y] -= _amount;
+                if(InventoryAmount[y] <= 0) {
+                    //document.querySelector("#Slot"+String(Inventory.indexOf(_id)+1)).innerHTML="";
+                    document.querySelector("#Slot1").innerHTML="";
+                    document.querySelector("#Slot2").innerHTML="";
+                    document.querySelector("#Slot3").innerHTML="";
+                    document.querySelector("#Slot4").innerHTML="";
+                    document.querySelector("#Slot5").innerHTML="";
+                    document.querySelector("#Slot6").innerHTML="";
+                    document.querySelector("#Slot7").innerHTML="";
+                    document.querySelector("#Slot8").innerHTML="";
+                    document.querySelector("#Slot9").innerHTML="";
+                    document.querySelector("#Slot10").innerHTML="";
+                    document.querySelector("#Slot11").innerHTML="";
+                    document.querySelector("#Slot12").innerHTML="";
+                    document.querySelector("#Slot13").innerHTML="";
+                    document.querySelector("#Slot14").innerHTML="";
+                    document.querySelector("#Slot15").innerHTML="";
+                    document.querySelector("#Slot16").innerHTML="";
+                    document.querySelector("#Slot17").innerHTML="";
+                    document.querySelector("#Slot18").innerHTML="";
+                    document.querySelector("#Slot19").innerHTML="";
+                    document.querySelector("#Slot20").innerHTML="";
+                    document.querySelector("#Slot21").innerHTML="";
+                    document.querySelector("#Slot22").innerHTML="";
+                    document.querySelector("#Slot23").innerHTML="";
+                    document.querySelector("#Slot24").innerHTML="";
+                    document.querySelector("#Slot25").innerHTML="";
+                    document.querySelector("#Slot26").innerHTML="";
+                    document.querySelector("#Slot27").innerHTML="";
+                    document.querySelector("#Slot28").innerHTML="";
+                    document.querySelector("#Slot29").innerHTML="";
+                    document.querySelector("#Slot30").innerHTML="";
+                    document.querySelector("#Slot31").innerHTML="";
+                    document.querySelector("#Slot32").innerHTML="";
+                    document.querySelector("#Slot33").innerHTML="";
+                    document.querySelector("#Slot34").innerHTML="";
+                    document.querySelector("#Slot35").innerHTML="";
+                    document.querySelector("#Slot36").innerHTML="";
+                    delete Inventory[Inventory.indexOf(_id)];
+                    delete InventoryAmount[Inventory.indexOf(_id)];
+                    Inventory = Inventory.filter(String)
+                    InventoryAmount = InventoryAmount.filter(Number)
+
+                }
+            }
+        }
+        DrawInv()
+    }
+    function DrawInv() {
+        for (i = 0; i < Inventory.length; i++) {
+            var y = Inventory[i];
+            var x = InventoryAmount[i];
+            var y2 = String(Inventory[i]).slice(1);
+            var z = "Name Not Set(x";
+            var d = "Description Not Set"
+            var s = "Images/Default.png";
+            var w = "DrawInv()";
+            //Defualt Image
+
+            if (y == "I1") {
+                s = "Images/Item_Dagger.png"
+                //Item Image
+                z = "Dagger(x";
+                d = "[Dagger]<br>[Item]<br><br>an anchient weapon, to brittle to be used now though.<br><br>[Scrap]<br>[-LMB-]<br><br> - String(x1)<br> - Stick(x1)<br> - Rock(x1)"
+            }
+            if (y == "I2") {
+                s = "Images/Item_Skull.png"
+                //Item Image
+                z = "Skull(x";
+                d = "[Skull]<br>[Material]<br><br>Skull are always single because they have <strong>no body.</strong><br><br>[Scrap]<br>[-LMB-]<br><br> - Bone(x2)"
+            }
+            if (y == "I3") {
+                s = "Images/Item_Bone.png"
+                //Item Image
+                z = "Bone(x";
+                d = "[Bone]<br>[Material]<br><strong>Bone</strong>";
+            }
+            if (y == "I4") {
+                s = "Images/Item_String.png"
+                //Item Image
+                z = "String(x";
+                d = "[String]<br>[Material]<br><br>Very thin, yet strong, and can be used to tie things up"
+            }
+            if (y == "I5") {
+                s = "Images/Item_Grass.png"
+                //Item Image
+                z = "Grass(x";
+                d = "[Grass]<br>[Material]<br><br>\"Hey! I remember eating this stuff as a kid!\""
+            }
+            if (y == "I6") {
+                s = "Images/Item_Stick.png"
+                //Item Image
+                z = "Stick(x";
+                d = "[Stick]<br>[Material, Equipabble]<br>DMG: 0.5<br><br>It may be a \"Weapon\" but just try no to get yourself into a *sticky* situation"
+            }
+            if (y == "I7") {
+                s = "Images/Item_Pebble.png"
+                //Item Image
+                z = "Rock(x";
+                d = "[Rock]<br>[Material]<br><br> PAPYRUS!! OH MY GOD!! IS THAT... A HUMAN?!?<br>uhhh...actually i think that's a rock."
+            }
+            if (y == "I8") {
+                s = "Images/Item_Silver.png"
+                //Item Image
+                z = "Silver(x";
+                d = "[Silver]<br>[Material]<br><br>I heard Vampires don't like it"
+            }
+            if (y == "I9") {
+                s = "Images/Item_Emerald.png"
+                //Item Image
+                z = "Emerald(x";
+                d = "[Emerald]<br>[Material]<br><br>you hear a faint, \"Hurr\" in the distance. It sounded like who ever made that noise had there nose plugged."
+            }
+            if (y == "I10") {
+                s = "Images/Item_Ruby.png"
+                //Item Image
+                z = "Ruby(x";
+                d = "[Ruby]<br>[Material]<br><br>A very expensive gem"
+            }
+            if (y == "I11") {
+                s = "Images/Item_DarkGem.png"
+                //Item Image
+                z = "DarkGem(x";
+                d = "[DarkGem]<br>[Material, ???]<br><br>01000011011011110111001001110010011101010111000001110100011100110010000001000100011000010111010001100001"
+            }
+            if (y == "I13") {
+                s = "Images/Item_Paper.png"
+                //Item Image
+                z = "Paper(x";
+                d = "[Paper]<br>[Material]<br><br>I used to wonder if I got enough paper if I could make a paper boat large enough to hold people"
+            }
+            if (y == "I14") {
+                s = "Images/Item_Paper_Used.png"
+                //Item Image
+                z = "Paper_Note(x";
+                d = "[Note]<br>[Material]<br><br>The note describes the area, with enough notes you might even be able to draw what other areas look like and be able to explore them"
+            }
+            if (y == "I15") {
+                s = "Images/Item_Paper_Mapped.png"
+                //Item Image
+                z = "Paper_Mapped(x";
+                d = "[Map]<br>[Consumable]<br><br>Shows an unfamiliar area"
+            }
+            if (y == "I21") {
+                s = "Images/Item_Handle_Sword.png"
+                //Item Image
+                z = "Handle_Sword(x";
+                d = "[Sword Handle]<br>[Material]<br><br>It looks familiar, you notice every(most) sword has this.<br><br>[Scrap]<br>[-LMB-]<br><br> - Stick(x2)"
+            }
+            if (y == "I1001") {
+                s = "Images/Item_Slime_Green.png"
+                //Item Image
+                z = "Slime_Green(x";
+                d = "[<a2 style='color:green;'>Nature Slime</a2>]<br>[Material]<br><br>\"Don't touch it! jeeze, god probably doesnt even know what its made of.\"";
+            }
+            if (y == "I1002") {
+                s = "Images/Item_Slime_Yellow.png"
+                //Item Image
+                z = "Slime_Yellow(x";
+                d = "[<a2 style='color:yellow;'>Energy Slime</a2>]<br>[Material]<br><br>Look I know Energy drinks are good and all, <strong>But who in their right mind could mix up DRINK AND SLIME</strong>"
+            }
+            if (y == "I1003") {
+                s = "Images/Item_Slime_Blue.png"
+                //Item Image
+                z = "Slime_Blue(x";
+                d = "[<a2 style='color:blue;'>Water Slime</a2>]<br>[Material]<br><br>just, don't drink it, ok?"
+            }
+            if (y == "I1004") {
+                s = "Images/Item_Slime_Red.png"
+                //Item Image
+                z = "Slime_Red(x";
+                d = "[<a2 style='color:red;'>Magma Slime</a2>]<br>[Material]<br><br>\"it's a bit Spicy?!\" please don't tell me... no, just, nevermind. never talk to me again"
+            }
+            if (y == "I2001") {
+                s = "Images/Sword_Slime_Green.png"
+                z = "Sword_Slime_Green(x";
+                d = "[Green Slime Sword]<br>[Material, Equipabble]<br>DMG: 15<br>Drop Chance Multiplier: +10%<br><br>Nature Slime Sword"
+            }
+            if (y == "I2002") {
+                s = "Images/Sword_Slime_Yellow.png"
+                z = "Sword_Slime_Yellow(x";
+                d = "[Yellow Slime Sword]<br>[Material, Equipabble]<br>DMG: 18<br>Drop Chance Multiplier: +10%<br><br>Energy Slime Sword"
+            }
+            if (y == "I2003") {
+                s = "Images/Sword_Slime_Blue.png"
+                z = "Sword_Slime_Blue(x";
+                d = "[Blue Slime Sword]<br>[Material, Equipabble]<br>DMG: 21<br>Drop Chance Multiplier: +10%<br><br>Water Slime Sword"
+            }
+            if (y == "I2004") {
+                s = "Images/Sword_Slime_Red.png"
+                z = "Sword_Slime_Red(x";
+                d = "[Red Slime Sword]<br>[Material, Equipabble]<br>DMG: 24<br>Drop Chance Multiplier: +10%<br><br>Magma Slime Sword"
+            }
+            if (y == "I2005") {
+                s = "Images/Sword_Wooden.png"
+                z = "Sword_Wooden(x";
+                d = "[Wooden Sword]<br>[Equipabble]<br>DMG: 7<br><br>A very \"Dangerous\" weapon, be careful not to poke your eye out"
+            }
+            if (y == "I2006") {
+                s = "Images/Sword_Bone.png"
+                z = "Sword_Bone(x";
+                d = "[Bone Sword]<br>[Equipabble]<br>DMG: 12<br>XP Multiplier: +25%<br><br>Somehow collects XP and transfers it to who ever holds it"
+            }
+            if (y == "I2007") {
+                s = "Images/Sword_Stone.png"
+                z = "Sword_Stone(x";
+                d = "[Stone Sword]<br>[Material, Equipabble]<br>DMG: 32<br><br>hah, made out of Rocks? get real cobblestone is where it's all at"
+            }
+            if (y == "I2008") {
+                s = "Images/Sword_Slime.png"
+                z = "Sword_Slime(x";
+                d = "[<strong>Slime Sword</strong>]<br>[Equipabble]<br>DMG: 45<br>Drop Chance Multiplier: +50%<br><br>A <strong>VERY</strong> rare sword made of every type of slime"
+            }
+            if (y == "I2009") {
+                s = "Images/Sword_Grass.png"
+                z = "Sword_Grass(x";
+                d = "[Bladed Grass Sword]<br>[Equipabble]<br>DMG: 100<br><br>Which is worse: a Paper cut, or a Grass cut"
+            }
+            if (y == "I2010") {
+                s = "Images/Sword_Silver.png"
+                z = "Sword_Silver(x";
+                d = "[Silver Sword]<br>[Equipabble]<br>DMG: 250<br><br>Vampire's bane"
+            }
+            if (y == "I2011") {
+                s = "Images/Sword_Alpha.png"
+                z = "Sword_Alpha(x";
+                d = "[Alpha Sword]<br>[Material, Equipabble]<br>DMG: 500<br><br>Alpha is *usually* the best version, I mean look at cube world."
+            }
+            if (y == "I2012") {
+                s = "Images/Sword_Beta.png"
+                z = "Sword_Beta(x";
+                d = "[Beta Sword]<br>[Material, Equipabble]<br>DMG: 1000<br><br>Well, it's better than Alpha"
+            }
+            if (y == "I2013") {
+                s = "Images/Sword_Gamma.png"
+                z = "Sword_Gamma(x";
+                d = "[Gamma Sword]<br>[Material, Equipabble]<br>DMG: 2000<br><br>Idk what Gamma means anymore! Is it a greek letter, screen brightness, or lazer ray things from outer space??!!?"
+            }
+            if (y == "I2014") {
+                s = "Images/Sword_Delta.png"
+                z = "Sword_Delta(x";
+                d = "[Delta Sword]<br>[Material, Equipabble]<br>DMG: 4000<br><br>I think you can find one of these in some runes"
+            }
+            if (y == "I2015") {
+                s = "Images/Sword_Epsilon.png"
+                z = "Sword_Epsilon(x";
+                d = "[Epsilon Sword]<br>[Material, Equipabble]<br>DMG: 8000<br><br>Ɛ"
+            }
+            if (y == "I2016") {
+                s = "Images/Sword_Emerald.png"
+                z = "Sword_Emerald(x";
+                d = "[Emerald Sword]<br>[Equipabble]<br>DMG: 1500<br>XP Multiplier: +100%<br><br>"
+            }
+            if (y == "I2017") {
+                s = "Images/Sword_Ruby.png"
+                z = "Sword_Ruby(x";
+                d = "[Ruby Sword]<br>[Equipabble]<br>DMG: 1500<br>Drop Chance Multiplier: +75%<br><br>"
+            }
+            if (y == "I2505") {
+                s = "Images/Blade_Wooden.png"
+                z = "Blade_Wooden(x";
+                d = "[Wooden Blade]<br>[Material]<br><br>The blade needed to craft a Wooden Sword"
+            }
+            if (y == "I2506") {
+                s = "Images/Blade_Bone.png"
+                z = "Blade_Bone(x";
+                d = "[Bone Blade]<br>[Material]<br><br>The difference between a bone blade and a normal bone is that a bone can be a blade but a blade cant be a bone"
+            }
+            if (y == "I2507") {
+                s = "Images/Blade_Stone.png"
+                z = "Blade_Stone(x";
+                d = "[Stone Blade]<br>[Material]<br><br>The blade needed to craft a Stone Sword"
+            }
+            if (y == "I2509") {
+                s = "Images/Blade_Grass.png"
+                z = "Blade_Grass(x";
+                d = "[Grass Blade]<br>[Material]<br><br>is it a blade of grass, or a grass of blade"
+            }
+            if (y == "I2510") {
+                s = "Images/Blade_Silver.png"
+                z = "Blade_Silver(x";
+                d = "[Silver Blade]<br>[Material]<br><br>Don't let the Vampires find out you have this"
+            }
+            if (y == "I2511") {
+                s = "Images/Blade_Alpha.png"
+                z = "Blade_Alpha(x";
+                d = "[Alpha Blade]<br>[Material]<br><br>This is the the last blade you'll need for the Swords of Greek letters"
+            }
+            if (y == "I2516") {
+                s = "Images/Blade_Emerald.png"
+                z = "Blade_Emerald(x";
+                d = "[Emerald Blade]<br>[Material]<br><br>"
+            }
+            if (y == "I2516") {
+                s = "Images/Blade_Ruby.png"
+                z = "Blade_Ruby(x";
+                d = "[Ruby Blade]<br>[Material]<br><br>"
+            }
+            if (y == "I4001") {
+                s = "Images/Tool_Net.png"
+                z = "Tool_Net(x";
+                d = "[Net]<br>[Consumable]<br><br>GoTtA CaTcH Em aLl!<br>This Item can be used to catch Monster, or Creatures. Some Monsters/Creatures can do special things after they're are caught.<br>You can only have <strong>5</strong> of one type of monster in your inventory at a time or else the special things the monster can do stop working"
+            }
+            if (y == "I10001") {
+                s = "Images/Monster_Slime_Small_Green.png"
+                z = "Living_Slime_Small_Green(x";
+                d = "[Living Green Slime[Small]]<br>[Monster]<br><br>Hold onto the creature to get 1 Green slime every second"
+            }
+            if (y == "I10002") {
+                s = "Images/Monster_Slime_Small_Yellow.png"
+                z = "Living_Slime_Small_Yellow(x";
+                d = "[Living Yellow Slime[Small]]<br>[Monster]<br><br>Hold onto the creature to get 1 Yellow slime every second"
+            }
+            if (y == "I10003") {
+                s = "Images/Monster_Slime_Small_Blue.png"
+                z = "Living_Slime_Small_Blue(x";
+                d = "[Living Blue Slime[Small]]<br>[Monster]<br><br>Hold onto the creature to get 1 Blue slime every second"
+            }
+            if (y == "I10004") {
+                s = "Images/Monster_Slime_Small_Red.png"
+                z = "Living_Slime_Small_Red(x";
+                d = "[Living Red Slime[Small]]<br>[Monster]<br><br>Hold onto the creature to get 1 Red slime every second"
+            }
+            if (y == "I1000001") {
+                z = "Non-Existant_Button(x";
+                d = "[Non-Existant_Button]<br>[None]<br><br><button>Button</button>"
+            }
+            if (y == "I1000002") {
+                z = "Non-Existant_Darkness(x";
+                d = "[Non-Existant_Darkness]<br>[None]<br><br><div style='background-color:#000000;'>a<br>a</div>"
+            }
+            if (y == "I1000003") {
+                z = "Non-Existant_Arcade(x";
+                d = "[Non-Existant_Arcade]<br>[None]<br><br><div style='background-color:#D5D5D5;width:100%;height:284px'><div id='Player'style='background-color:#D50000;width:16;height:16;'></div></div>"
+            }
+            TA = "<a class='tooltip' ><img src=" + s + " onmousedown='rightclick("+y2+")'' style='width:16px;height:16px;image-rendering:pixelated;'><span>" + z + x + ")<br>" + d + "</span></a>"
+            if(x>0) {
+                document.getElementById("Slot" + String(i + 1)).innerHTML = TA;
+            }
+        tooltips = document.querySelectorAll('.tooltip span');
+        }
+    }
+    function Consume(_id) {
+        switch(_id) {
+            case 15:
+                DestroyItem("I"+_id,1);
+                switch(document.getElementById("Map").children.length){
+                    case 1:
+                        var region = document.createElement("div")
+                        region.setAttribute("onclick","Region('Forest')");
+                        region.innerHTML="Forest";
+                        region.style.position="absolute";
+                        region.style.top="432px";
+                        region.style.left="700px";
+                        document.getElementById("Map").appendChild(region)
+                        Quest("Quest: (Rank: D)<br><br>I recently heard that there were goblins in the forest; Just the idea that Goblins are so close the town freaks me out. I need a stone sword so I can protect the town, if not, at least myself<br><br>Collect:<br> - Sword_Stone(x1)<br><br>Reward:<br> + Silver(x2)<br> + Copper Coins(x150)<br> + XP(x1350)",60*60*24*4,4);
+                        break;
+                    case 2:
+                        var region = document.createElement("div")
+                        region.setAttribute("onclick","Region('Cave')");
+                        region.innerHTML="Cave";
+                        region.style.position="absolute";
+                        region.style.top="372px";
+                        region.style.left="652px";
+                        document.getElementById("Map").appendChild(region)
+                        break;
+                    case 3:
+                        var region = document.createElement("div")
+                        region.setAttribute("onclick","Region('Village')");
+                        region.innerHTML="Village";
+                        region.style.position="absolute";
+                        region.style.top="332px";
+                        region.style.left="752px";
+                        document.getElementById("Map").appendChild(region)
+                        break;
+                    case 4:
+                        var region = document.createElement("div")
+                        region.setAttribute("onclick","Region('Dungeon')");
+                        region.innerHTML="Dungeon";
+                        region.style.position="absolute";
+                        region.style.top="272px";
+                        region.style.left="672px";
+                        document.getElementById("Map").appendChild(region)
+                        break;
+                }
+                break;
+            case 4001:
+                DestroyItem("I"+_id,1);
+                if (M_C_ID!=-1001) { 
+                    if (M_C_ID+10000 != "NaN") {
+                    CreateItem(M_C_ID+10000,1);
+                    } else { 
+                        CreateMessage("Failed to catch Monster",15);
+                    }
+                } else {
+                    CreateMessage("Failed to catch Monster",15);
+                }
+                break;
+        }
+    }
+    function equip(_id) {
+        switch(_id) {
+            case 6:
+                DestroyItem("I"+_id,1);
+                if(Equipped[0]!=undefined){
+                    CreateItem(Equipped[0])
+                }
+                Equipped[0]=_id;
+                P_Stat_Weapon_DMG = 0.5;
+                document.getElementById("ESword").src="Images/Item_Stick.png";
+                break;
+            case 2001:
+                DestroyItem("I"+_id,1);
+                if(Equipped[0]!=undefined){
+                    CreateItem(Equipped[0])
+                }
+                Equipped[0]=_id;
+                P_Stat_Weapon_DMG = 15;
+                P_Stat_Weapon_DCM = 1.10;
+                document.getElementById("ESword").src="Images/Sword_Slime_Green.png";
+                break;
+            case 2002:
+                DestroyItem("I"+_id,1);
+                if(Equipped[0]!=undefined){
+                    CreateItem(Equipped[0])
+                }
+                Equipped[0]=_id;
+                P_Stat_Weapon_DMG = 18;
+                P_Stat_Weapon_DCM = 1.10;
+                document.getElementById("ESword").src="Images/Sword_Slime_Yellow.png";
+                break;
+            case 2003:
+                DestroyItem("I"+_id,1);
+                if(Equipped[0]!=undefined){
+                    CreateItem(Equipped[0])
+                }
+                Equipped[0]=_id;
+                P_Stat_Weapon_DMG = 21;
+                P_Stat_Weapon_DCM = 1.10;
+                document.getElementById("ESword").src="Images/Sword_Slime_Blue.png";
+                break;
+            case 2004:
+                DestroyItem("I"+_id,1);
+                if(Equipped[0]!=undefined){
+                    CreateItem(Equipped[0])
+                }
+                Equipped[0]=_id;
+                P_Stat_Weapon_DMG = 24;
+                P_Stat_Weapon_DCM = 1.10;
+                document.getElementById("ESword").src="Images/Sword_Slime_Red.png";
+                break;
+            case 2005:
+                DestroyItem("I"+_id,1);
+                if(Equipped[0]!=undefined){
+                    CreateItem(Equipped[0])
+                }
+                Equipped[0]=_id;
+                P_Stat_Weapon_DMG = 7;
+                document.getElementById("ESword").src="Images/Sword_Wooden.png";
+                break;
+            case 2006:
+                DestroyItem("I"+_id,1);
+                if(Equipped[0]!=undefined){
+                    CreateItem(Equipped[0])
+                }
+                Equipped[0]=_id;
+                P_Stat_Weapon_DMG = 12;
+                document.getElementById("ESword").src="Images/Sword_Bone.png";
+                break;
+            case 2007:
+                DestroyItem("I"+_id,1);
+                if(Equipped[0]!=undefined){
+                    CreateItem(Equipped[0])
+                }
+                Equipped[0]=_id;
+                P_Stat_Weapon_DMG = 32;
+                P_Stat_Weapon_XPM = 1.25;
+                document.getElementById("ESword").src="Images/Sword_Stone.png";
+                break;
+            case 2008:
+                DestroyItem("I"+_id,1);
+                if(Equipped[0]!=undefined){
+                    CreateItem(Equipped[0])
+                }
+                Equipped[0]=_id;
+                P_Stat_Weapon_DMG = 45;
+                P_Stat_Weapon_DCM = 1.50;
+                document.getElementById("ESword").src="Images/Sword_Slime.png";
+                break;
+            case 2009:
+                DestroyItem("I"+_id,1);
+                if(Equipped[0]!=undefined){
+                    CreateItem(Equipped[0])
+                }
+                Equipped[0]=_id;
+                P_Stat_Weapon_DMG = 100;
+                document.getElementById("ESword").src="Images/Sword_Grass.png";
+                break;
+            case 2010:
+                DestroyItem("I"+_id,1);
+                if(Equipped[0]!=undefined){
+                    CreateItem(Equipped[0])
+                }
+                Equipped[0]=_id;
+                P_Stat_Weapon_DMG = 250;
+                document.getElementById("ESword").src="Images/Sword_Silver.png";
+                break;
+            case 2011:
+                DestroyItem("I"+_id,1);
+                if(Equipped[0]!=undefined){
+                    CreateItem(Equipped[0])
+                }
+                Equipped[0]=_id;
+                P_Stat_Weapon_DMG = 500;
+                document.getElementById("ESword").src="Images/Sword_Alpha.png";
+                break;
+            case 2012:
+                DestroyItem("I"+_id,1);
+                if(Equipped[0]!=undefined){
+                    CreateItem(Equipped[0])
+                }
+                Equipped[0]=_id;
+                P_Stat_Weapon_DMG = 1000;
+                document.getElementById("ESword").src="Images/Sword_Beta.png";
+                break;
+            case 2013:
+                DestroyItem("I"+_id,1);
+                if(Equipped[0]!=undefined){
+                    CreateItem(Equipped[0])
+                }
+                Equipped[0]=_id;
+                P_Stat_Weapon_DMG = 2000;
+                document.getElementById("ESword").src="Images/Sword_Gamma.png";
+                break;
+            case 2014:
+                DestroyItem("I"+_id,1);
+                if(Equipped[0]!=undefined){
+                    CreateItem(Equipped[0])
+                }
+                Equipped[0]=_id;
+                P_Stat_Weapon_DMG = 4000;
+                document.getElementById("ESword").src="Images/Sword_Delta.png";
+                break;
+            case 2015:
+                DestroyItem("I"+_id,1);
+                if(Equipped[0]!=undefined){
+                    CreateItem(Equipped[0])
+                }
+                Equipped[0]=_id;
+                P_Stat_Weapon_DMG = 8000;
+                document.getElementById("ESword").src="Images/Sword_Epsilon.png";
+                break;
+            case 2016:
+                DestroyItem("I"+_id,1);
+                if(Equipped[0]!=undefined){
+                    CreateItem(Equipped[0])
+                }
+                Equipped[0]=_id;
+                P_Stat_Weapon_DMG = 1500;
+                P_Stat_Weapon_XPM = 2;
+                document.getElementById("ESword").src="Images/Sword_Emerald.png";
+                break;
+            case 2017:
+                DestroyItem("I"+_id,1);
+                if(Equipped[0]!=undefined){
+                    CreateItem(Equipped[0])
+                }
+                Equipped[0]=_id;
+                P_Stat_Weapon_DMG = 1500;
+                P_Stat_Weapon_DCM = 1.75;
+                document.getElementById("ESword").src="Images/Sword_Ruby.png";
+                break;
+        }
+        P_Stat_DMG = P_Stat_STR+P_Stat_Weapon_DMG*(P_Stat_STR/10+1);
+    }
+    function unequip(_Slot) {
+        if(Equipped[0]!=undefined){
+        CreateItem(Equipped[0])
+        Equipped[0]=undefined;
+        document.getElementById("ESword").src="Images/Slot_Equipment_Sword.png";
+        }
+        P_Stat_Weapon_DMG=0;
+        P_Stat_Weapon_XPM=1;
+        P_Stat_Weapon_DCM=1;
+        P_Stat_DMG = P_Stat_STR+P_Stat_Weapon_DMG*(P_Stat_STR/10+1);
+    }
+    function update() {
+        M_Bar_HP.style.width = M_Stat_HP / M_Enemy[1] * 126 + "px";
+        
+        if(imagerotation<=-0.1) {
+            imagerotation=imagerotation/1.075;
+            M_Image.style.transform = 'rotate(' + imagerotation + 'deg)';
+        }else if(imagerotation>=0.1) {
+            imagerotation=imagerotation/1.075;
+            M_Image.style.transform = 'rotate(' + imagerotation + 'deg)';
+        }
+        document.getElementById("Debug").innerHTML = "Fame: "+String(Math.round(((Math.sqrt(M_Defeated / 10000) * P_Stat_LV)/Math.sqrt(Math.sqrt(M_Attacked)))*10000)/10000)*Math.round(1+Math.sqrt(Math.sqrt(Math.sqrt(C_Coin_Copper))))+"<br>Monsters Defeated: "+M_Defeated+"<br>" + P_Stat_XP+"/"+P_Stat_LV*P_Stat_LV*P_Stat_LV+" "+Math.round(P_Stat_XP/(P_Stat_LV*P_Stat_LV*P_Stat_LV)*100) + "% (LV: " + P_Stat_LV + ")";
+        
+    }
+    //Extra Stuff
+    function randomNumber(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+    //Testing Stuff
+    function ListItems() {
+        for (i = 0; i < Inventory.length; i++) {
+            CreateMessage(Inventory[i] + ": " + InventoryAmount[i])
+        }
+    }
+    function Cheat() {
+        GoToArea(7);
+        P_Stat_DMG=10000;
+        //CreateMessage(Inventory+"\n"+InventoryAmount);
+        CreateItem(1001);
+        CreateItem(1002);
+        CreateItem(1003);
+        CreateItem(1004);
+        InventoryAmount[0]=100000;
+        InventoryAmount[1]=100000;
+        InventoryAmount[2]=100000;
+        InventoryAmount[3]=100000;
+    }
+    //File Stuff
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    var time = today.getHours() + "-" + today.getMinutes() + "-" + today.getSeconds();
+    var content = "What's up , hello world";
+    var filename = "Save-IRM--" + date + "--" + time;
+    function save() {
+        today = new Date();
+        date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        time = today.getHours() + "-" + today.getMinutes() + "-" + today.getSeconds();
+        content = String(Discovered) + "+" + String(Inventory) + "+" + String(InventoryAmount) + "-" + String(P_Stat_XP) + "-" + String(C_Coin_Copper);
+        filename = "Save-IRM-D-" + date + "-T-" + time;
+        CreateMessage("File name: \"" + filename + "\"");
+
+        var hiddenElement = document.createElement('a');
+
+        hiddenElement.href = 'data:attachment/text,' + content;
+        hiddenElement.target = '_blank';
+        hiddenElement.download = filename + ".txt";
+        hiddenElement.click();
+    }
+    /*
+    function load() {
+    	//file;
+    	//content;
+    	//split content;
+    	//for split length case i(id) x=y;
+    }
+	*/
+    var mainloop = function() {
+        update();
+    };
+    setInterval(mainloop, 16);
+    var attackloop = function() {
+        if (document.getElementById("AutoAttack").checked) {
+            AttackMonster();
+        }
+        if(InventoryAmount[Inventory.indexOf("I10001")]<=5) {
+            if(Inventory[Inventory.indexOf("I10001")]) {
+                CreateItem(1001,InventoryAmount[Inventory.indexOf("I10001")])
+            }
+        }
+        if(InventoryAmount[Inventory.indexOf("I10002")]<=5) {
+            if(Inventory[Inventory.indexOf("I10002")]) {
+                CreateItem(1002,InventoryAmount[Inventory.indexOf("I10002")])
+            }
+        }
+        if(InventoryAmount[Inventory.indexOf("I10003")]<=5) {
+            if(Inventory[Inventory.indexOf("I10003")]) {
+                CreateItem(1003,InventoryAmount[Inventory.indexOf("I10003")])
+            }
+        }
+        if(InventoryAmount[Inventory.indexOf("I10004")]<=5) {
+            if(Inventory[Inventory.indexOf("I10004")]) {
+                CreateItem(1004,InventoryAmount[Inventory.indexOf("I10004")])
+            }
+        }
+    };
+    setInterval(attackloop, 1028);
+</script>
